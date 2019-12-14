@@ -1,0 +1,264 @@
+/* Whole frame */
+/* not working */
+body {
+    margin: 0;
+    background-color: teal;
+}
+
+.wrapper {
+    display: flex;  
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .wrapper > * {
+    padding: 10px 50px 100px 0px;
+    flex: 1 100%;
+
+  }
+  
+  .header {
+    background: #116466;
+  }
+  
+  .footer {
+    background: #d1e8e2;
+  }
+  
+  .main {
+    text-align: left;
+    background: #2c3531;
+  }
+  
+  .aside-1 {
+    background: #d9b08c;
+  }
+  
+  .aside-2 {
+    background: #ffcb9a;
+  }
+  
+  @media all and (min-width: 600px) {
+    .aside { flex: 1 0 0; }
+  }
+  /* ODER OF THE TAGS WHEN min-width = 800 */
+  @media all and (min-width: 800px) {
+    .main    { flex: 3 0px; }
+    .aside-1 { order: 1; } 
+    .main    { order: 2; }
+    .aside-2 { order: 3; }
+    .footer  { order: 4; }
+  }
+  
+  /* Whole frame */
+
+
+  /* Start of totals boxes */
+header {
+    height: 100px;
+}
+.flexGrow {
+    width: 90vw;
+    height: 120px;
+}
+.topBoxes {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    
+}
+
+.boxTotal {
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    border: 3px solid black ;
+    
+}
+.boxBills {
+    border-radius: 5px 5px 5px 5px;
+    width: 155px;
+    height: 100px;
+    border: 3px solid black;
+}
+.boxFood {
+    border-radius: 5px 80px 5px;
+    width: 155px;
+    height: 100px;
+    border: 3px solid black ;
+}
+.boxClothes {
+    border-radius: 20px;
+    width: 155px;
+    height: 100px;
+    border: 3px solid black ;
+}
+.boxEntertainment {
+    border-radius: 5px 80px 5px;
+    width: 155px;
+    height: 100px;
+    border: 3px solid black ;
+}
+.totalLbl {
+    padding: 5px;
+}
+/* End of totals boxes */
+
+/* start progress bars */
+
+#section-bars {
+    
+}
+
+.bar-tag {
+
+}
+
+.progress-bars {
+    line-height: 100px;
+}
+/* end progress bars */
+
+/* Start Budget Article  */
+input {
+    display: block;
+    padding: 5px;
+    margin: 12px;
+    width: 25%;
+    border-radius: 4px;
+
+  }
+
+.budget-add {
+    padding: 0px;
+    margin: 0px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+
+}
+
+.row {
+    width: 500px;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+/* All the code for the calcBtn */
+.btn {
+    display: inline-block;
+    position: relative;
+    left: 30px;
+    bottom: 0px;
+    background-color: transparent;
+    border: none;  
+    cursor: pointer;
+    z-index: 0;
+    padding: 0;
+    color: black;
+    font-size: 20px;
+}
+
+.btn:focus {
+outline-color: transparent;
+}
+
+/* btn-blow */
+.btn-blow::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background-color: #2c3531;
+    position: absolute;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+    opacity: 0;
+    z-index: -4;
+    transition-duration: .4s;
+    pointer-events: none;
+  }
+
+.btn-blow:focus::after {
+    opacity: 1;
+    transform: scale(1);
+}
+.btn-blow:focus:hover::after {
+    transform: scale(1.2);
+}
+
+.btn-blow {
+    width: 100px;
+    height: 100px;  
+}
+
+.btn-blow * {
+    pointer-events: none;
+}
+
+.btn-blow span {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    left:-50px;
+    width: 200px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    transition: transform .4s, border-radius .4s;  
+    font-family: 'Coiny', cursive;
+    transition-timing-function: cubic-bezier(.5,2.4,.7,.5);
+  }
+
+.btn-blow span::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #2c3531;
+    background-image: radial-gradient(circle, #9fb6c5 0%, #3bd5fc 30%, #18e4ff 100%);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+    z-index: -1;  
+    border-radius: 0;
+    transition: all .4s;
+
+}
+.btn-blow:hover span {
+    transform: scale(1.3);
+    transition: transform .8s, border-radius .4s;  
+    border-radius: 50%;  
+}
+.btn-blow:hover span::before {
+    transition: background-size .8s, border-radius .4s; 
+    border-radius: 50%;
+    background-size: 120% 120%;
+}
+/* End of the code for the CalcBtn */
+
+/* End Budget Article  */
+
+/* feed box */
+#section-feed {
+    position: relative;
+    bottom: 170px;
+    left: 60px;
+}
+.outer-feed-box {
+    border: 1px solid black;
+    height: 400px;
+    width:200px;
+    margin-top: 200px;
+}
+.feed-tag {
+    padding: 5px;
+}
+/* End of feed box  */
+
+
+
+
+

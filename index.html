@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Total Boxes in header -->
+            <header class="header">
+                <div class="flexGrow">
+                    <div class="topBoxes">
+                        <div class="boxTotal" id="topTotal">
+                            <p class="totalLbl">Total</p>
+                            <!-- JS output -->
+                            <p id="totalBoxOutput"></p>
+        
+                        </div>
+                        <div class="boxBills" id="topBills">
+                            <p class="totalLbl">Bills</p>
+                            <!-- JS output -->
+                            <p id="billsBoxOutput"></p>
+                        </div>
+                        <div class="boxFood" id="topFood">
+                            <p class="totalLbl">Food</p>
+                            <!-- JS output -->
+                            <p id="foodBoxOutput"></p>
+                        </div>
+                        <div class="boxClothes" id="topClothes">
+                            <p class="totalLbl" >Clothes</p>
+                            <!-- JS output -->
+                            <p id="clothesBoxOutput"></p>
+                        </div>
+                        <div class="boxEntertainment" id="topEntertainment">
+                            <p class="totalLbl">Entertainment</p>
+                            <!-- JS output -->
+                            <p id="entertainmentBoxOutput"></p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- End of Boxes in header -->
+            <!-- Form in main-->
+            <article class="main">
+                <div class="row">
+                <div class="budget-add">
+                    <input type="number" name="budgetNumber" value="income" id="income" placeholder="Weekly Income"><br>
+                    <input type="number" name="budgetNumber" value="bills" id="bills" placeholder="Bills"><br>
+                    <input type="number" name="budgetNumber" value="clothes" id="clothes" placeholder="Clothes"><br>
+                    <input type="number" name="budgetNumber" value="food" id="food" placeholder="Food"><br>
+                    <input type="number" name="budgetNumber" value="entertainment" id="entertainment" placeholder="Entertainment"><br>
+                    
+                    <button onclick="budget()" id="calcBtn" class="btn btn-blow" class="calcBtn" ><span class="">Calculate</span></button>
+                
+                    <div class="data-results">
+                            <p>Press Calculate to start saving money!</p>
+                    </div>
+                </div>
+                </div>
+
+            </article>
+            <!-- End of form in main-->
+            <!-- Side progress bar in aside 1 -->
+            <aside class="aside aside-1">
+                <div class="section-bars">
+                    <div class="bar-tag">
+                        <ul class="progress-bars">
+                            <li><div class="overview-bar" id="overview-bar">
+                                <label>Overview</label>
+                            </div></li>
+                            <li><div class="bills-bar" id="bills-bar">
+                                <label>Bills</label>
+                            </div></li>
+                            <li><div class="food-bar" id="food-bar">
+                                <label>Food</label>
+                            </div></li>
+                            <li><div class="clothes-bar" id="clothes-bar">
+                                <label>Clothes</label>
+                            </div></li>
+                            <li><div class="entertainment-bar" id="entertainment-bar">
+                                <label>Entertainment</label>
+                            </div></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <!-- End of Side progress bar aside 1-->
+            <!-- Feed in aside 2 -->
+            <aside class="aside aside-2">
+                <section id="section-feed">
+                        <div class="outer-feed-box">
+                            <div class="feed-tag">
+                                <strong>Feed</strong>
+                                <hr>
+                                <ol id="feedOutput">
+                                    <!-- <li>JS This is where all the newLi is outputted</li> -->
+                                </ol>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                </section>
+            </aside>
+            <!-- End of Feed in aside 2 -->
+            <!-- Whatever we want here -->
+            <footer class="footer">
+ 
+            </footer>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>
