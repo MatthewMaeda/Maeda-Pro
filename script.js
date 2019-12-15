@@ -1,118 +1,142 @@
-// Start of Sidebar 
-// feed 
-// const budget = document.querySelector('#budget-add');
-// budgetAddToPage.addEventListener('calcBtn', e => {
-//     e.preventDefult();
-//     const income = document.querySelector('#income');
-//     if (income.value ) {
-//         //<li></li>
-//         const budgetHTML = document.createElement('li');
-//         //adds <class="feed-list"></li>
-//         budgetHTML.classList.add('feed-list');
-//         // <li class="feed-item"> Text from the total input in put here </li>
-//         budgetHTML.innerText = income.value;
-//         // if double clicked on the feed it will be removed from the feed
-//         budgetHTML.addEventListener('dblclick', e => {
-//             budgetHTML.remove();
-//         });
-//         const 
-//     }
-// });
 
+
+
+//This is "my way" of handling stuff like this too. Not to confuse you though. // You only have to say "let" once, then you can defined as many variables afterward as you want.
+let incomeNumber,
+billsNumber,
+foodNumber,
+clothesNumber,
+entertainmentNumber,
+result = incomeNumber - billsNumber - foodNumber - clothesNumber - entertainmentNumber;
+
+const inputs = document.querySelectorAll("input"); //Get all of the inputs, returns an array of the elements.
+
+inputs.forEach(input => input.addEventListener("change", (e)=> { //Map through and put the event listener on the elements.
+
+//events return a target.value and other things (like ID).
+
+//You can match the ID and assign the target.value  to it with a ternary.
+
+// If the ID of the element matches, then assign the value to the corresponding variable.
+e.target.id === "income" ? incomeNumber = Number(e.target.value) : null;
+e.target.id === "bills" ? billsNumber = Number(e.target.value) : null;
+e.target.id === "food" ? foodNumber = Number(e.target.value) : null;
+e.target.id === "clothes" ? clothesNumber = Number(e.target.value) : null;
+e.target.id === "entertainment" ? entertainmentNumber = Number(e.target.value) : null;
+
+//Sweet table trick just to show what this will do.
+console.table({
+    incomeNumber,
+    billsNumber,
+    foodNumber,
+    clothesNumber,
+    entertainmentNumber
+})
+}))
 
 // calculations for budget
     function budget() {
-        let incomeNumber = document.getElementById("income").value;
-        let billsNumber = document.getElementById("bills").value;
-        let foodNumber = document.getElementById("food").value;
-        let clothesNumber = document.getElementById("clothes").value;
-        let entertainmentNumber = document.getElementById("entertainment").value;
-        
-        let result = incomeNumber - billsNumber - foodNumber - clothesNumber - entertainmentNumber;
-    
-        // for feed Creates <li>
-        const newLi = document.createElement("li");
-        const newLiName = document.createElement("p");
-        // for totals Creates <label>
-        const newLbl = document.createElement("label");
+        //sets a variable to find the input value
+        let inputIncome = document.getElementById("income").value;
+        let inputBills = document.getElementById("bills").value;
+        let inputFood = document.getElementById("food").value;
+        let inputClothes = document.getElementById("clothes").value;
+        let inputEntertainment = document.getElementById("entertainment").value;
+        // total for all the inputs
+        let result = inputIncome - inputBills - inputFood - inputClothes - inputEntertainment;
+        // this will be for the remove addEventListener
+        let newRemove = "remove";
 
+        //Creates a new li for feed 
+        const newLiIncome = document.createElement("li");
+        const newLiBills = document.createElement("li");
+        const newLiFood = document.createElement("li");
+        const newLiClothes = document.createElement("li");
+        const newLiEntertainment = document.createElement("li");
+
+        // append append?
+        const newPRemove = document.createElement("p");
+
+        newPRemove.innerHTML = newRemove;
+        
+        // Creates a new p for Total box
         const newResult = document.createElement("p");
-        newResult.innerHTML = result
-
-        //new li on html
-        newLiName.innerHTML = "Income Added: "
-        newLi.innerHTML = incomeNumber;
-        newLi.innerHTML = billsNumber;
-        newLi.innerHTML = foodNumber;
-        newLi.innerHTML = clothesNumber;
-        newLi.innerHTML = entertainmentNumber;
+        const newPBills = document.createElement("p");
+        const newPFood = document.createElement("p");
+        const newPClothes = document.createElement("p");
+        const newPEntertainment = document.createElement("p");
         
-        //new Label on html
-        newLbl.innerHTML = incomeNumber;
-        newLbl.innerHTML = billsNumber;
-        newLbl.innerHTML = foodNumber;
-        newLbl.innerHTML = clothesNumber;
-        newLbl.innerHTML = entertainmentNumber;
+        //Pairs the created LI to the global variable 
+        newLiIncome.innerHTML = inputIncome;
+        newLiBills.innerHTML = inputBills;
+        newLiFood.innerHTML = inputFood;
+        newLiClothes.innerHTML = inputClothes;
+        newLiEntertainment.innerHTML = inputEntertainment;
 
+        // Pairs the created p to the global variable 
+        newResult.innerHTML = result;
+        newPBills.innerHTML = inputBills
+        newPFood.innerHTML = inputFood
+        newPClothes.innerHTML = inputClothes
+        newPEntertainment.innerHTML = inputEntertainment
+        
+      
             //when you double click a new li, it will remove it in the Feed
-            newLi.addEventListener('dblclick', e => {
-                newLi.remove();
+            newLiIncome.addEventListener('dblclick', e => {
+                newLiIncome.remove();
+            }); 
+            newLiBills.addEventListener('dblclick', e => {
+                newLiBills.remove();
+            }); 
+            newLiClothes.addEventListener('dblclick', e => {
+                newLiClothes.remove();
+            }); 
+            newLiFood.addEventListener('dblclick', e => {
+                newLiFood.remove();
+            }); 
+            newLiEntertainment.addEventListener('dblclick', e => {
+                newLiEntertainment.remove();
             }); 
 
-            //income feed display
-            if (document.getElementById("income").value > 0) {
-                feedOutput.append(newLi);
+
+            // Feed Output for all the inputs
+            if (inputIncome > 0) {
+                feedOutput.append(newLiIncome, newPRemove);
+            }        
+            if (inputBills > 0) {
+                feedOutput.append(newLiBills);
             }  
-        
-            if (document.getElementById("bills").value > 0) {
-                feedOutput.append(newLi);
+            if (inputClothes > 0) {
+                feedOutput.append(newLiClothes);
             }  
-            if (document.getElementById("food").value > 0) {
-                feedOutput.append(newLi);
+            if (inputFood > 0) {
+                feedOutput.append(newLiFood);
             }  
-            if (document.getElementById("clothes").value > 0) {
-                feedOutput.append(newLi);
+            if (inputEntertainment > 0) {
+                feedOutput.append(newLiEntertainment);
             }  
-            if (document.getElementById("entertainment").value > 0) {
-                feedOutput.append(newLi);
-            } 
+
+            // output for that total
+            if (result) {
+                totalBoxOutput.append(newResult);
+            }
+            if (inputBills > 0) {
+                billsBoxOutput.append(newPBills);
+            }  
+            if (inputClothes > 0) {
+                clothesBoxOutput.append(newPClothes);
+            }  
+            if (inputFood > 0) {
+                foodBoxOutput.append(newPFood);
+            }  
+            if (inputEntertainment > 0) {
+                entertainmentBoxOutput.append(newPEntertainment);
+            }  
+
+
+
+          }
           
 
-            //income Total boxes
-            if (document.getElementById("income").value > 0) {
-                totalBoxOutput.append(newLbl);
-            }
-            if (document.getElementById("bills").value > 0) {
-                billsBoxOutput.append(newLbl);
-            }  
-            if (document.getElementById("food").value > 0) {
-                foodBoxOutput.append(newLbl);
-            }  
-            if (document.getElementById("clothes").value > 0) {
-                clothesBoxOutput.append(newLbl);
-            }  
-            if (document.getElementById("entertainment").value > 0) {
-                entertainmentBoxOutput.append(newLbl);
-            } 
-        
-    
-        // /\D/g (replace every single non-digit)
-        // income = income.replace(/\D/g,' ');
-        // bills = bills.replace(/\D/g,' ');
-        // food = food.replace(/\D/g,'');
-        // clothes = clothes.replace(/\D/g,' ');
-        // entertainment = entertainment.replace(/\D/g,'' );
 
-        // result = income - bills - food - clothes - entertainment;
-        // savings = (income * 0.20); //in practice you should in general put 20% of your income in your savings
-        // $(".data-results").empty(); //make a class to show this result
-        
-        // if ( result === 0 ) {
-        //     (".data-results").append('<p class="text-negative"> Please enter your data. </p>');
-        // } else if ( result < 0 ) {
-        //     (".data-results").append('<p class="text-negative"> We have calculated that you have ' + result + ' left in your budget. Need a tip to save more? tips(1. Lay down, 2. Grab a bible, 3. Start praying)</p>');
-        // } else {
-        //     (".data-results").append('<p class="text-positive"> We have calculated that you have ' + result + ' left in your budget. </p>','<p class="text-good">So you should save at least ' + savings + '.</p>');
-        // }
-    }
-// End of Sidebar
+

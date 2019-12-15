@@ -123,13 +123,17 @@ header {
 /* Start Budget Article  */
 input {
     display: block;
-    padding: 5px;
+    padding: 15px 15px 15px 15px;
     margin: 12px;
-    width: 25%;
+    width: 40%;
     border-radius: 4px;
 
   }
 
+#income {
+    padding: 15px 15px 15px 15px;
+    width: 50%;
+}
 .budget-add {
     padding: 0px;
     margin: 0px;
@@ -255,6 +259,11 @@ outline-color: transparent;
 }
 .feed-tag {
     padding: 5px;
+}
+
+.newPRemove {
+    position: relative;
+    top: 2000px;
 }
 /* End of feed box  */
 
