@@ -75,10 +75,10 @@ console.table({
 
         // This returns the input in the topBoxes as a += 
         // Get selector of bills 
-        const bills = document.querySelector('#billsBoxOutput');
+        // const bills = document.querySelector('#billsBoxOutput');
         // Get inner text and convert it to a number
-        const currValue = Number.parseFloat( bills.innerText);
-        bills.innerText = currValue + inputBills; 
+        // const currValue = Number.parseFloat( bills.innerText);
+        // bills.innerText = currValue + inputBills; 
         
       
             //when you double click a new li, it will remove it in the Feed
@@ -134,20 +134,29 @@ console.table({
             }  
 
             // progress bar
-            var elem = document.getElementById("overview-percent");
-            val = parseInt(document.getElementById("inputIncome").value) = 70;
-            var width = 0;
-            var id = setInterval(frame, val);
+            let billsConvert = (inputIncome / inputBills) * 100;
+    
+            let billsPercent = document.getElementById("overview-percent").style.width = billsConvert;
+            
+            if (billsPercent > 0 ) {
+                bills.percent.append(billsPercent);
+            }
+           
 
-            function frame() {
-                if (width >= val) {
-                    clearInterval(id);
-                } else {
-                    width++; 
-                    elem.style.width = width + '%'; 
-                    elem.innerHTML = width * 1  + '%';
-                }
-            }  
+            // var elem = document.getElementById("overview-percent");
+            // val = parseInt(document.getElementById("inputIncome").value) = 70;
+            // var width = 0;
+            // var id = setInterval(frame, val);
+
+            // function frame() {
+            //     if (width >= val) {
+            //         clearInterval(id);
+            //     } else {
+            //         width++; 
+            //         elem.style.width = width + '%'; 
+            //         elem.innerHTML = width * 1  + '%';
+            //     }
+            // }  
           
 
     
