@@ -44,8 +44,6 @@ console.table({
         let inputEntertainment = document.getElementById("entertainment").value;
         // total for all the inputs
         let result = inputIncome - inputBills - inputFood - inputClothes - inputEntertainment;
-        // this will be for the remove addEventListener
-        let newRemove = "remove";
 
         //Creates a new li for feed 
         const newLiIncome = document.createElement("li");
@@ -53,11 +51,6 @@ console.table({
         const newLiFood = document.createElement("li");
         const newLiClothes = document.createElement("li");
         const newLiEntertainment = document.createElement("li");
-
-        // append append?
-        const newPRemove = document.createElement("p");
-
-        newPRemove.innerHTML = newRemove;
         
         // Creates a new p for Total box
         const newResult = document.createElement("p");
@@ -79,6 +72,13 @@ console.table({
         newPFood.innerHTML = inputFood
         newPClothes.innerHTML = inputClothes
         newPEntertainment.innerHTML = inputEntertainment
+
+        // This returns the input in the topBoxes as a += 
+        // Get selector of bills 
+        const bills = document.querySelector('#billsBoxOutput');
+        // Get inner text and convert it to a number
+        const currValue = Number.parseFloat( bills.innerText);
+        bills.innerText = currValue + inputBills; 
         
       
             //when you double click a new li, it will remove it in the Feed
@@ -101,19 +101,19 @@ console.table({
 
             // Feed Output for all the inputs
             if (inputIncome > 0) {
-                feedOutput.append(newLiIncome, newPRemove);
+                feedOutput.append("Income: ", newLiIncome);
             }        
             if (inputBills > 0) {
-                feedOutput.append(newLiBills);
+                feedOutput.append("Bills: ",newLiBills);
             }  
             if (inputClothes > 0) {
-                feedOutput.append(newLiClothes);
+                feedOutput.append("Clothes", newLiClothes);
             }  
             if (inputFood > 0) {
-                feedOutput.append(newLiFood);
+                feedOutput.append("Food: ", newLiFood);
             }  
             if (inputEntertainment > 0) {
-                feedOutput.append(newLiEntertainment);
+                feedOutput.append("Entertainment: ", newLiEntertainment);
             }  
 
             // output for that total
@@ -133,10 +133,28 @@ console.table({
                 entertainmentBoxOutput.append(newPEntertainment);
             }  
 
+            // progress bar
+            var elem = document.getElementById("overview-percent");
+            val = parseInt(document.getElementById("inputIncome").value);
+            var width = 0;
+            var id = setInterval(frame, val);
 
+            function frame() {
+                if (width >= val) {
+                    clearInterval(id);
+                } else {
+                    width++; 
+                    elem.style.width = width + '%'; 
+                    elem.innerHTML = width * 1  + '%';
+                }
+            }  
+          
+
+    
 
           }
-          
+
+
 
 
 

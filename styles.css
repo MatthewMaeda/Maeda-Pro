@@ -1,8 +1,9 @@
 /* Whole frame */
-/* not working */
+
 body {
     margin: 0;
-    background-color: teal;
+    background-color: white;
+    font-family: "Open Sans";
 }
 
 .wrapper {
@@ -23,7 +24,7 @@ body {
   }
   
   .footer {
-    background: #d1e8e2;
+    background: #2c3531;
   }
   
   .main {
@@ -32,11 +33,11 @@ body {
   }
   
   .aside-1 {
-    background: #d9b08c;
+    background: rgb(201, 199, 199);
   }
   
   .aside-2 {
-    background: #ffcb9a;
+    background: rgb(201, 199, 199);
   }
   
   @media all and (min-width: 600px) {
@@ -65,40 +66,50 @@ header {
 .topBoxes {
     display: flex;
     justify-content: space-around;
-    margin-top: 10px;
+    margin-top: 20px;
     
 }
 
 .boxTotal {
     border-radius: 50%;
-    width: 170px;
-    height: 170px;
-    border: 3px solid black ;
+    width: 150px;
+    height: 150px;
+    border: 5px solid gray;
+    font-size: 1.2rem;
+    background-color: rgb(201, 199, 199);
     
 }
 .boxBills {
-    border-radius: 5px 5px 5px 5px;
-    width: 155px;
-    height: 100px;
-    border: 3px solid black;
-}
-.boxFood {
     border-radius: 5px 80px 5px;
     width: 155px;
     height: 100px;
-    border: 3px solid black ;
+    border: 5px solid gray;
+    background-color: rgb(201, 199, 199);
+    margin-top: 20px;
 }
-.boxClothes {
+.boxFood {
     border-radius: 20px;
     width: 155px;
     height: 100px;
-    border: 3px solid black ;
+    border: 5px solid gray;
+    background-color: rgb(201, 199, 199);
+    margin-top: 20px;
 }
-.boxEntertainment {
+.boxClothes {
     border-radius: 5px 80px 5px;
     width: 155px;
     height: 100px;
-    border: 3px solid black ;
+    border: 5px solid gray;
+    background-color: rgb(201, 199, 199);
+    margin-top: 20px;
+}
+.boxEntertainment {
+    border-radius: 20px;
+    width: 155px;
+    height: 100px;
+    border: 5px solid gray;
+    background-color: rgb(201, 199, 199);
+    margin-top: 20px;
 }
 .totalLbl {
     padding: 5px;
@@ -107,16 +118,108 @@ header {
 
 /* start progress bars */
 
-#section-bars {
-    
-}
-
-.bar-tag {
-
-}
 
 .progress-bars {
-    line-height: 100px;
+    line-height: 50px;
+    text-align: left;
+    list-style-type: none;
+    color: white;
+    font-size: 1.2rem;
+    
+    
+}
+.overview-bar {
+    background-color: #116466;
+    border-radius: 20px;
+}
+
+/* overview background */
+#overview-back {
+    width: 100%;
+    background-color: white;
+}
+/* overview percentage */
+#overview-percent {
+    width: 0%;
+    color: black;
+    height: 50px;
+    background-color: rgb(204, 59, 22);   
+
+}
+.bills-bar {
+    background-color: #116466;
+}
+/* bills background */
+#bills-back {
+    width: 100%;
+    background-color: white;
+}
+/* bills percentage */
+#bills-percent {
+    width: 0%;
+    color: black;
+    height: 50px;
+    background-color: rgb(204, 142, 26);  
+}
+
+.food-bar {
+    background-color: #116466;
+}
+
+/* food background */
+#food-back {
+    width: 100%;
+    background-color: white;
+}
+
+/* food percentage */
+#food-percent {
+    width: 0%;
+    color: black;
+    height: 50px;
+    background-color: rgb(201, 204, 20);  
+}
+
+.clothes-bar {
+    background-color: #116466;
+}
+
+/* clothes background */
+#clothes-back {
+    width: 100%;
+    background-color: white;
+}
+
+/* clothes percentage */
+#clothes-percent {
+    width: 0%;
+    color: black;
+    height: 50px;
+    background-color: rgb(20, 204, 20);   
+}
+
+.entertainment-bar {
+    background-color: #116466;
+}
+
+/* entertainment background */
+#entertainment-back {
+    width: 100%;
+    background-color: white;
+}
+
+/* entertainment percentage */
+#entertainment-percent {
+    width: 0%;
+    color: black;
+    height: 50px;
+    background-color: rgb(20, 198, 204);    
+}
+
+.end-bar {
+    background-color: #116466;
+    border-radius: 0px 0px 20px 20px;
+    color: #116466;
 }
 /* end progress bars */
 
@@ -151,7 +254,7 @@ input {
 .btn {
     display: inline-block;
     position: relative;
-    left: 30px;
+    left: 75px;
     bottom: 0px;
     background-color: transparent;
     border: none;  
@@ -219,7 +322,7 @@ outline-color: transparent;
     height: 100%;
     width: 100%;
     background-color: #2c3531;
-    background-image: radial-gradient(circle, #9fb6c5 0%, #3bd5fc 30%, #18e4ff 100%);
+    background-image: radial-gradient(circle, #24babd 0%, #1c9496 30%, #000000 100%);
     background-size: 200% 200%;
     background-repeat: no-repeat;
     background-position: center;
@@ -242,7 +345,6 @@ outline-color: transparent;
     background-size: 120% 120%;
 }
 /* End of the code for the CalcBtn */
-
 /* End Budget Article  */
 
 /* feed box */
@@ -252,19 +354,16 @@ outline-color: transparent;
     left: 60px;
 }
 .outer-feed-box {
-    border: 1px solid black;
-    height: 400px;
-    width:200px;
+    border: 5px solid #116466;
+    height: 600px;
+    width: 250px;
     margin-top: 200px;
+    background-color: white;
 }
 .feed-tag {
     padding: 5px;
 }
 
-.newPRemove {
-    position: relative;
-    top: 2000px;
-}
 /* End of feed box  */
 
 
