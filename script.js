@@ -135,7 +135,7 @@ console.table({
 
             // progress bar
             var elem = document.getElementById("overview-percent");
-            val = parseInt(document.getElementById("inputIncome").value);
+            val = parseInt(document.getElementById("inputIncome").value) = 70;
             var width = 0;
             var id = setInterval(frame, val);
 
