@@ -8,6 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <!-- credit Font Awesome website -->
+        <script src="https://kit.fontawesome.com/51282c5a57.js" crossorigin="anonymous"></script>
+
     </head>
 
     <body>
@@ -56,25 +59,23 @@
                         <input type="number" name="entertainmentName" id="entertainment" placeholder="Entertainment"><br>
                         
                         <button onclick="budget()" id="calcBtn" class="btn btn-blow" class="calcBtn" ><span class="">Calculate</span></button>
-                    
-                        <div class="data-results">
-                            <!-- ordered list -->
-                            <ol>
-                            <p>Budgeting 20% of your money.</p>
-                            <textarea id="totalArea">Here are some tips: </textarea>
-                            <p>Tips for budgeting bills.</p>
-                            <textarea id="billsArea">Here are some tips: </textarea>
-                            <p>Tips for budgeting clothes.</p>
-                            <textarea id="clothesArea">Here are some tips: </textarea>
-                            <p>Tips for budgeting food.</p>
-                            <textarea id="foodArea">Here are some tips: </textarea>
-                            <p>Tips for budgeting entertainment.</p>
-                            <textarea id="entertainmentArea">Here are some tips: </textarea>
-                            </ol>
+                    </div>
+                    <div class="data-results">
+                        <!-- ordered list -->
+                        <ol>
+                        <p>Budgeting 20% of your money.</p>
+                        <textarea id="totalArea">Here are some tips: </textarea>
+                        <p>Tips for budgeting bills.</p>
+                        <textarea id="billsArea">Here are some tips: </textarea>
+                        <p>Tips for budgeting clothes.</p>
+                        <textarea id="clothesArea">Here are some tips: </textarea>
+                        <p>Tips for budgeting food.</p>
+                        <textarea id="foodArea">Here are some tips: </textarea>
+                        <p>Tips for budgeting entertainment.</p>
+                        <textarea id="entertainmentArea">Here are some tips: </textarea>
+                        </ol>
                         </div>
                     </div>
-                </div>
-
             </article>
             <!-- End of form in main-->
             <!-- Side progress bar in aside 1 -->
@@ -85,31 +86,31 @@
                             <li><div class="overview-bar" id="overview-bar">
                                 <label>Overview</label>
                                 <div id="overview-back">
-                                    <div id="overview-percent">0%</div>
+                                    <div id="overview-percent"><p class="center-percent" id="overview-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="bills-bar" id="bills-bar">
                                 <label>Bills</label>
                                 <div id="bills-back">
-                                    <div id="bills-percent">0%</div>
-                                </div>
-                            </div></li>
-                            <li><div class="food-bar" id="food-bar">
-                                <label>Food</label>
-                                <div id="food-back">
-                                    <div id="food-percent">0%</div>
+                                    <div id="bills-percent"><p class="center-percent" id="bills-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="clothes-bar" id="clothes-bar">
                                 <label>Clothes</label>
                                 <div id="clothes-back">
-                                    <div id="clothes-percent">0%</div>
+                                    <div id="clothes-percent"><p class="center-percent" id="clothes-p"></p></div>
+                                </div>
+                            </div></li>
+                            <li><div class="food-bar" id="food-bar">
+                                <label>Food</label>
+                                <div id="food-back">
+                                    <div id="food-percent"><p class="center-percent" id="food-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="entertainment-bar" id="entertainment-bar">
                                 <label>Entertainment</label>
                                 <div id="entertainment-back">
-                                    <div id="entertainment-percent">0%</div>
+                                    <div id="entertainment-percent"><p class="center-percent" id="entertainment-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="end-bar" id="end-bar">
@@ -142,7 +143,11 @@
             <!-- End of Feed in aside 2 -->
             <!-- Whatever we want here -->
             <footer class="footer">
- 
+                <!-- we will put a company logo and other cool designs here for app use when app size -->
+                
+                <p style="color: grey;">Copyright &copy; 2019 Maeda Money 
+                    | DevTeam: <a></a>Robert Harman, Brielle Robinson, Matthew Maeda</p>
+                    <p style= "color: grey; opacity: 0.1;">We will sue you if we do not authorize your permission to use this website -matt</p>
             </footer>
         </div>
         

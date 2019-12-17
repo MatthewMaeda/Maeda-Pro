@@ -187,40 +187,28 @@ console.table({
 
 
             // progress bar
-            let overviewConvert = (result / inputIncome) * 100;
+            
+            let overviewConvert = ((result / inputIncome) * 100).toFixed(2);
             document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+            document.getElementById("overview-p").append(`${overviewConvert}%`);
 
-            let billsConvert = (inputBills / inputIncome) * 100;
+            let billsConvert = ((inputBills / inputIncome) * 100).toFixed(2);
             document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+            document.getElementById("bills-p").append(`${billsConvert}%`);
 
-            let clothesConvert = (inputClothes / inputIncome) * 100;
+            let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(2);
             document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
+            document.getElementById("clothes-p").append(`${clothesConvert}%`);
 
-            let foodConvert = (inputFood / inputIncome) * 100;
+            let foodConvert = ((inputFood / inputIncome) * 100).toFixed(2);
             document.getElementById("food-percent").style.width = `${foodConvert}%`;
+            document.getElementById("food-p").append(`${foodConvert}%`);
 
-            let entertainmentConvert = (inputEntertainment / inputIncome) * 100;
+            let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(2);
             document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
-
+            document.getElementById("entertainment-p").append(`${entertainmentConvert}%`);
     
-            
-            
-           
 
-            // var elem = document.getElementById("overview-percent");
-            // val = parseInt(document.getElementById("inputIncome").value) = 70;
-            // var width = 0;
-            // var id = setInterval(frame, val);
-
-            // function frame() {
-            //     if (width >= val) {
-            //         clearInterval(id);
-            //     } else {
-            //         width++; 
-            //         elem.style.width = width + '%'; 
-            //         elem.innerHTML = width * 1  + '%';
-            //     }
-            // }  
           
 
     
