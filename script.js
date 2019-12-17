@@ -34,6 +34,10 @@ console.table({
 })
 }))
 
+
+// Global Variables 
+
+
 // calculations for budget
     function budget() {
         //sets a variable to find the input value
@@ -53,25 +57,25 @@ console.table({
         const newLiEntertainment = document.createElement("li");
         
         // Creates a new p for Total box
-        const newResult = document.createElement("p");
+        let newResult = document.createElement("p");
         const newPBills = document.createElement("p");
         const newPFood = document.createElement("p");
         const newPClothes = document.createElement("p");
         const newPEntertainment = document.createElement("p");
         
         //Pairs the created LI to the global variable 
-        newLiIncome.innerHTML = inputIncome;
-        newLiBills.innerHTML = inputBills;
-        newLiFood.innerHTML = inputFood;
-        newLiClothes.innerHTML = inputClothes;
-        newLiEntertainment.innerHTML = inputEntertainment;
+        newLiIncome.innerHTML = inputIncome || 0;
+        newLiBills.innerHTML = inputBills || 0;
+        newLiFood.innerHTML = inputFood || 0;
+        newLiClothes.innerHTML = inputClothes || 0;
+        newLiEntertainment.innerHTML = inputEntertainment || 0;
 
-        // Pairs the created p to the global variable 
+        // Pairs the created p to a variable
         newResult.innerHTML = result;
-        newPBills.innerHTML = inputBills
-        newPFood.innerHTML = inputFood
-        newPClothes.innerHTML = inputClothes
-        newPEntertainment.innerHTML = inputEntertainment
+        newPBills.innerHTML = inputBills;
+        newPFood.innerHTML = inputFood;
+        newPClothes.innerHTML = inputClothes;
+        newPEntertainment.innerHTML = inputEntertainment;
 
         // This returns the input in the topBoxes as a += 
         // Get selector of bills 
@@ -83,7 +87,7 @@ console.table({
       
             //when you double click a new li, it will remove it in the Feed
             newLiIncome.addEventListener('dblclick', e => {
-                newLiIncome.remove();
+                newLiIncome.remove("Income: ");
             }); 
             newLiBills.addEventListener('dblclick', e => {
                 newLiBills.remove();
@@ -100,47 +104,107 @@ console.table({
 
 
             // Feed Output for all the inputs
-            if (inputIncome > 0) {
+            
                 feedOutput.append("Income: ", newLiIncome);
-            }        
-            if (inputBills > 0) {
+                    
+            if (inputBills) {
                 feedOutput.append("Bills: ",newLiBills);
             }  
-            if (inputClothes > 0) {
+            if (inputClothes) {
                 feedOutput.append("Clothes", newLiClothes);
             }  
-            if (inputFood > 0) {
+            if (inputFood) {
                 feedOutput.append("Food: ", newLiFood);
             }  
-            if (inputEntertainment > 0) {
+            if (inputEntertainment) {
                 feedOutput.append("Entertainment: ", newLiEntertainment);
             }  
 
             // output for that total
-            if (result) {
-                totalBoxOutput.append(newResult);
+            if (newResult) {
+             totalBoxOutput.append(newResult);
             }
-            if (inputBills > 0) {
-                billsBoxOutput.append(newPBills);
-            }  
-            if (inputClothes > 0) {
+            
+            // NOT WORKING
+            // let curResult = result;
+            // newResult.innerText = oldResult + curResult;
+
+            // totalBoxOutput.append(newResult);
+
+            if (newResult) {
+                totalBoxOutput.append(newResult);
+               }
+            if (newPBills) {
+            billsBoxOutput.append(newPBills);
+            }
+            // let oldBills= Number(newPBills.innerText);
+            // let curBills  = inputBills;
+            // newPBills.innerText = oldBills + curBills;
+            if (newPClothes) {
                 clothesBoxOutput.append(newPClothes);
-            }  
-            if (inputFood > 0) {
+            }
+            if (newPFood) {
                 foodBoxOutput.append(newPFood);
-            }  
-            if (inputEntertainment > 0) {
-                entertainmentBoxOutput.append(newPEntertainment);
-            }  
+            }
+            if (newPEntertainment) { 
+            entertainmentBoxOutput.append(newPEntertainment);
+            }
+
+            // text area results
+            const twentyPercent = .20;
+            let saving =  inputIncome * twentyPercent;
+
+            if (result < saving) {
+                totalArea.append("What do you think you are, Maeda money? Start saving more!");
+            } else if (result >= saving ) {
+                totalArea.append("Whoa, you are Maeda Money! You are doing a good job budgeting your money.");
+            }
+
+            if (inputIncome < inputBills) {
+                billsArea.append("You need to STOP being stupid"); //bad outcome
+            } else  {
+                billsArea.append("You are on track, to saving money, treat yo-self"); // good outcome
+            }
+
+            if (inputBills < inputClothes) {
+                clothesArea.append("You are NOT a fashion Icon, stop it."); //bad outcome
+            } else {
+                clothesArea.append("You could possibly spend more on nicer clothes."); //good outcome
+            }
+            
+            if (inputFood < inputEntertainment ) {
+                foodArea.append("You should cook at home more."); //bad outcome
+            } else {
+                foodArea.append("You can afford to eat out more."); // good outcome
+            }
+
+            if (inputEntertainment > inputClothes ) {
+            entertainmentArea.append("You should be more anti-social."); //bad outcome
+            } else {
+            entertainmentArea.append("You should be less anti-social."); // good outcome
+            }
+            // end of text area results
+
 
             // progress bar
-            let billsConvert = (inputIncome / inputBills) * 100;
+            let overviewConvert = (result / inputIncome) * 100;
+            document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+
+            let billsConvert = (inputBills / inputIncome) * 100;
+            document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+
+            let clothesConvert = (inputClothes / inputIncome) * 100;
+            document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
+
+            let foodConvert = (inputFood / inputIncome) * 100;
+            document.getElementById("food-percent").style.width = `${foodConvert}%`;
+
+            let entertainmentConvert = (inputEntertainment / inputIncome) * 100;
+            document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
+
     
-            let billsPercent = document.getElementById("overview-percent").style.width = billsConvert;
             
-            if (billsPercent > 0 ) {
-                bills.percent.append(billsPercent);
-            }
+            
            
 
             // var elem = document.getElementById("overview-percent");
