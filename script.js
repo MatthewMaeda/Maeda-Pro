@@ -25,11 +25,11 @@
         const newPEntertainment = document.createElement("p");
         
         //Pairs the created LI to the global variable 
-        newLiIncome.innerHTML = inputIncome || 0;
-        newLiBills.innerHTML = inputBills || 0;
-        newLiFood.innerHTML = inputFood || 0;
-        newLiClothes.innerHTML = inputClothes || 0;
-        newLiEntertainment.innerHTML = inputEntertainment || 0;
+        newLiIncome.innerHTML = inputIncome;
+        newLiBills.innerHTML = inputBills;
+        newLiFood.innerHTML = inputFood;
+        newLiClothes.innerHTML = inputClothes;
+        newLiEntertainment.innerHTML = inputEntertainment;
 
         // Pairs the created p to a variable
         newResult.innerHTML = result;
@@ -39,7 +39,6 @@
         newPEntertainment.innerHTML = inputEntertainment;
       
             //when you double click a new li, it will remove it in the Feed (might need to remove this)
-          
             feedOutput.addEventListener('dblclick', e => {
                 feedOutput.remove();
             }); 
@@ -76,6 +75,11 @@
             }
             if (newPEntertainment) {
                 entertainmentBoxOutput.innerText = inputEntertainment;
+            }
+
+            // its not adding when new numbers are made yeah yeah yeah
+            if (totalBoxOutput.value) {
+                totalBoxOutput.innerText =  result + result;
             }
             // text area results
             const twentyPercent = .20;
