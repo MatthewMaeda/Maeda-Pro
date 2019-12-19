@@ -1,43 +1,4 @@
 
-
-
-//This is "my way" of handling stuff like this too. Not to confuse you though. // You only have to say "let" once, then you can defined as many variables afterward as you want.
-// let incomeNumber,
-// billsNumber,
-// foodNumber,
-// clothesNumber,
-// entertainmentNumber,
-// result = incomeNumber - billsNumber - foodNumber - clothesNumber - entertainmentNumber;
-
-// const inputs = document.querySelectorAll("input"); //Get all of the inputs, returns an array of the elements.
-
-// inputs.forEach(input => input.addEventListener("change", (e)=> { //Map through and put the event listener on the elements.
-
-// //events return a target.value and other things (like ID).
-
-// //You can match the ID and assign the target.value  to it with a ternary.
-
-// // If the ID of the element matches, then assign the value to the corresponding variable.
-// e.target.id === "income" ? incomeNumber = Number(e.target.value) : null;
-// e.target.id === "bills" ? billsNumber = Number(e.target.value) : null;
-// e.target.id === "food" ? foodNumber = Number(e.target.value) : null;
-// e.target.id === "clothes" ? clothesNumber = Number(e.target.value) : null;
-// e.target.id === "entertainment" ? entertainmentNumber = Number(e.target.value) : null;
-
-// //Sweet table trick just to show what this will do.
-// console.table({
-//     incomeNumber,
-//     billsNumber,
-//     foodNumber,
-//     clothesNumber,
-//     entertainmentNumber
-// })
-// }))
-
-
-// Global Variables 
-
-
 // calculations for budget
     function budget() {
         //sets a variable to find the input value
@@ -121,33 +82,43 @@
             let saving =  inputIncome * twentyPercent;
 
             if (result < saving) {
-                totalArea.append("What do you think you are, Maeda money? You can NOT spend more!");
+                totalArea.innerText ="What do you think you are, Maeda money? You can NOT spend more!";
+                document.getElementById("totalPTag").style.color = "red";
             } else if (result >= saving ) {
-                totalArea.append("Whoa, you are Maeda Money! You are doing a good job budgeting your money.");
+                totalArea.innerText = "Whoa, you are Maeda Money! You are doing a good job budgeting your money.";
+                document.getElementById("totalPTag").style.color = "green";
             }
 
             if (inputIncome < inputBills) {
-                billsArea.append("You need to STOP being stupid"); //bad outcome
+                billsArea.innerText ="You need to STOP being stupid"; //bad outcome
+                document.getElementById("billsPTag").style.color = "red";
             } else  {
-                billsArea.append("You are on track, to saving money, treat yo-self"); // good outcome
+                billsArea.innerText ="You are on track, to saving money, treat yo-self"; // good outcome
+                document.getElementById("billsPTag").style.color = "green";
             }
 
             if (inputBills < inputClothes) {
-                clothesArea.append("You are NOT a fashion Icon, stop it."); //bad outcome
+                clothesArea.innerText ="You are NOT a fashion Icon, stop it."; //bad outcome
+                document.getElementById("clothesPTag").style.color = "red";
             } else {
-                clothesArea.append("You could possibly spend more on nicer clothes."); //good outcome
+                clothesArea.innerText ="You could possibly spend more on nicer clothes."; //good outcome
+                document.getElementById("clothesPTag").style.color = "green";
             }
             
             if (inputFood < inputEntertainment ) {
-                foodArea.append("You should cook at home more."); //bad outcome
+                foodArea.innerText ="You should cook at home more."; //bad outcome
+                document.getElementById("foodPTag").style.color = "red";
             } else {
-                foodArea.append("You can afford to eat out more."); // good outcome
+                foodArea.innerText ="You can afford to eat out more."; // good outcome
+                document.getElementById("foodPTag").style.color = "green";
             }
 
             if (inputEntertainment > inputClothes ) {
-            entertainmentArea.append("You should be more anti-social."); //bad outcome
+            entertainmentArea.innerText ="You should be more anti-social."; //bad outcome
+            document.getElementById("entertainmentPTag").style.color = "red";
             } else {
-            entertainmentArea.append("You should be less anti-social."); // good outcome
+            entertainmentArea.innerText ="You should be less anti-social."; // good outcome
+            document.getElementById("entertainmentPTag").style.color = "green";
             }
             // end of text area results
 
@@ -202,9 +173,12 @@
             if (inputIncome < inputEntertainment) {
                 document.getElementById("entertainment-percent").style.width = "100%";
             }
+            
             // turns the background red if the result is less then zero
             if (result <= 0) {
                 document.getElementById("topTotal").style.backgroundColor = "red";
+            } else {
+                document.getElementById("topTotal").style.backgroundColor = "green";
             }
          
             document.getElementById("income").value = '';

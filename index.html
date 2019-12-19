@@ -60,19 +60,24 @@
                         <input type="number" name="entertainmentName" id="entertainment" placeholder="Entertainment"><br>
                         
                         <button onclick="budget()"  id="calcBtn" class="btn btn-blow" class="calcBtn" ><span class="">Calculate</span></button>
+
+                        <div onClick="window.location.reload();" class="button" id="button-5">
+                                <div id="translate"></div>
+                                <a>Refresh Page</a>
+                              </div>
                     </div>
                     <div class="data-results">
                         <!-- ordered list -->
                         <ol>
-                        <p>Budgeting 20% of your money.</p>
+                        <p id="totalPTag">Budgeting 20% of your money.</p>
                         <textarea id="totalArea">Here are some tips: </textarea>
-                        <p>Tips for budgeting bills.</p>
+                        <p id="billsPTag">Tips for budgeting bills.</p>
                         <textarea id="billsArea">Here are some tips: </textarea>
-                        <p>Tips for budgeting clothes.</p>
+                        <p id="clothesPTag">Tips for budgeting clothes.</p>
                         <textarea id="clothesArea">Here are some tips: </textarea>
-                        <p>Tips for budgeting food.</p>
+                        <p id="foodPTag">Tips for budgeting food.</p>
                         <textarea id="foodArea">Here are some tips: </textarea>
-                        <p>Tips for budgeting entertainment.</p>
+                        <p id="entertainmentPTag">Tips for budgeting entertainment.</p>
                         <textarea id="entertainmentArea">Here are some tips: </textarea>
                         </ol>
                         </div>
@@ -130,7 +135,7 @@
                 <section id="section-feed">
                         <div class="outer-feed-box">
                             <div class="feed-tag">
-                                <strong>Feed</strong>
+                                <strong>Feed<p class="dblP">Double click to remove</p></strong>
                                 <hr>
                                 <ol id="feedOutput">
                                     <!-- <li>JS This is where all the newLi is outputted</li> -->
@@ -145,10 +150,10 @@
             <!-- Whatever we want here -->
             <footer class="footer">
                 <!-- we can put a company logo and other cool designs here for app use when app size -->
-                <img src="logo.png" alt="logo" height="" width="">
+                <img class="logo" src="logo.png" alt="logo" height="" width="">
                 <p style="color: grey;">Copyright &copy; 2019 Maeda Money 
-                    | DevTeam: <a></a>Robert Harman, Brielle Robinson, Matthew Maeda</p>
-                    <p style= "color: grey; opacity: 0.1;">We will sue you if we do not authorize your permission to use this website -matt</p>
+                    | DevTeam: Robert Harman, Brielle Robinson, Matthew Maeda</p>
+                    <p class="sue" style= "color: grey; opacity: 0.1;">We will sue you if we do not authorize your permission to use this website -matt</p>
             </footer>
         </div>
         
