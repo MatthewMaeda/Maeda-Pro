@@ -2,37 +2,37 @@
 
 
 //This is "my way" of handling stuff like this too. Not to confuse you though. // You only have to say "let" once, then you can defined as many variables afterward as you want.
-let incomeNumber,
-billsNumber,
-foodNumber,
-clothesNumber,
-entertainmentNumber,
-result = incomeNumber - billsNumber - foodNumber - clothesNumber - entertainmentNumber;
+// let incomeNumber,
+// billsNumber,
+// foodNumber,
+// clothesNumber,
+// entertainmentNumber,
+// result = incomeNumber - billsNumber - foodNumber - clothesNumber - entertainmentNumber;
 
-const inputs = document.querySelectorAll("input"); //Get all of the inputs, returns an array of the elements.
+// const inputs = document.querySelectorAll("input"); //Get all of the inputs, returns an array of the elements.
 
-inputs.forEach(input => input.addEventListener("change", (e)=> { //Map through and put the event listener on the elements.
+// inputs.forEach(input => input.addEventListener("change", (e)=> { //Map through and put the event listener on the elements.
 
-//events return a target.value and other things (like ID).
+// //events return a target.value and other things (like ID).
 
-//You can match the ID and assign the target.value  to it with a ternary.
+// //You can match the ID and assign the target.value  to it with a ternary.
 
-// If the ID of the element matches, then assign the value to the corresponding variable.
-e.target.id === "income" ? incomeNumber = Number(e.target.value) : null;
-e.target.id === "bills" ? billsNumber = Number(e.target.value) : null;
-e.target.id === "food" ? foodNumber = Number(e.target.value) : null;
-e.target.id === "clothes" ? clothesNumber = Number(e.target.value) : null;
-e.target.id === "entertainment" ? entertainmentNumber = Number(e.target.value) : null;
+// // If the ID of the element matches, then assign the value to the corresponding variable.
+// e.target.id === "income" ? incomeNumber = Number(e.target.value) : null;
+// e.target.id === "bills" ? billsNumber = Number(e.target.value) : null;
+// e.target.id === "food" ? foodNumber = Number(e.target.value) : null;
+// e.target.id === "clothes" ? clothesNumber = Number(e.target.value) : null;
+// e.target.id === "entertainment" ? entertainmentNumber = Number(e.target.value) : null;
 
-//Sweet table trick just to show what this will do.
-console.table({
-    incomeNumber,
-    billsNumber,
-    foodNumber,
-    clothesNumber,
-    entertainmentNumber
-})
-}))
+// //Sweet table trick just to show what this will do.
+// console.table({
+//     incomeNumber,
+//     billsNumber,
+//     foodNumber,
+//     clothesNumber,
+//     entertainmentNumber
+// })
+// }))
 
 
 // Global Variables 
@@ -76,37 +76,17 @@ console.table({
         newPFood.innerHTML = inputFood;
         newPClothes.innerHTML = inputClothes;
         newPEntertainment.innerHTML = inputEntertainment;
-
-        // This returns the input in the topBoxes as a += 
-        // Get selector of bills 
-        // const bills = document.querySelector('#billsBoxOutput');
-        // Get inner text and convert it to a number
-        // const currValue = Number.parseFloat( bills.innerText);
-        // bills.innerText = currValue + inputBills; 
-        
       
-            //when you double click a new li, it will remove it in the Feed
-            newLiIncome.addEventListener('dblclick', e => {
-                newLiIncome.remove("Income: ");
+            //when you double click a new li, it will remove it in the Feed (might need to remove this)
+          
+            feedOutput.addEventListener('dblclick', e => {
+                feedOutput.remove();
             }); 
-            newLiBills.addEventListener('dblclick', e => {
-                newLiBills.remove();
-            }); 
-            newLiClothes.addEventListener('dblclick', e => {
-                newLiClothes.remove();
-            }); 
-            newLiFood.addEventListener('dblclick', e => {
-                newLiFood.remove();
-            }); 
-            newLiEntertainment.addEventListener('dblclick', e => {
-                newLiEntertainment.remove();
-            }); 
-
 
             // Feed Output for all the inputs
-            
+            if (inputIncome) {
                 feedOutput.append("Income: ", newLiIncome);
-                    
+            }
             if (inputBills) {
                 feedOutput.append("Bills: ",newLiBills);
             }  
@@ -120,42 +100,28 @@ console.table({
                 feedOutput.append("Entertainment: ", newLiEntertainment);
             }  
 
-            // output for that total
+            // output for that total boxes
             if (newResult) {
-             totalBoxOutput.append(newResult);
+             totalBoxOutput.innerText =  result;
             }
-            
-            // NOT WORKING
-            // let curResult = result;
-            // newResult.innerText = oldResult + curResult;
-
-            // totalBoxOutput.append(newResult);
-
-            if (newResult) {
-                totalBoxOutput.append(newResult);
-               }
             if (newPBills) {
-            billsBoxOutput.append(newPBills);
-            }
-            // let oldBills= Number(newPBills.innerText);
-            // let curBills  = inputBills;
-            // newPBills.innerText = oldBills + curBills;
-            if (newPClothes) {
-                clothesBoxOutput.append(newPClothes);
+                billsBoxOutput.innerText = inputBills;
             }
             if (newPFood) {
-                foodBoxOutput.append(newPFood);
+                foodBoxOutput.innerText =  inputFood;
             }
-            if (newPEntertainment) { 
-            entertainmentBoxOutput.append(newPEntertainment);
+            if (newPClothes) {
+                clothesBoxOutput.innerText = inputClothes;
             }
-
+            if (newPEntertainment) {
+                entertainmentBoxOutput.innerText = inputEntertainment;
+            }
             // text area results
             const twentyPercent = .20;
             let saving =  inputIncome * twentyPercent;
 
             if (result < saving) {
-                totalArea.append("What do you think you are, Maeda money? Start saving more!");
+                totalArea.append("What do you think you are, Maeda money? You can NOT spend more!");
             } else if (result >= saving ) {
                 totalArea.append("Whoa, you are Maeda Money! You are doing a good job budgeting your money.");
             }
@@ -185,32 +151,68 @@ console.table({
             }
             // end of text area results
 
-
             // progress bar
+            if (inputIncome > 0) {
+                let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
+                document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+                document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
+            }
+
+            if (inputBills > 0) {
+                let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
+                document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+                document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
+            }
+
+            if (inputClothes > 0) {
+                let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
+                document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
+                document.getElementById("clothes-p").innerHTML =`${clothesConvert}%`;
+            }
+
+            if (inputFood > 0) {
+                let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
+                document.getElementById("food-percent").style.width = `${foodConvert}%`;
+                document.getElementById("food-p").innerHTML = `${foodConvert}%`;
+            }
+
+            if (inputEntertainment > 0) {
+                let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
+                document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
+                document.getElementById("entertainment-p").innerHTML = `${entertainmentConvert}%`;
+            }
             
-            let overviewConvert = ((result / inputIncome) * 100).toFixed(2);
-            document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
-            document.getElementById("overview-p").append(`${overviewConvert}%`);
+            //Below this point inputs will be numbers not strings 
+            inputIncome = Number.parseFloat(inputIncome);
+            inputBills = Number.parseFloat(inputBills);
+            inputClothes = Number.parseFloat(inputClothes);
+            inputEntertainment = Number.parseFloat(inputEntertainment);
+            inputIncome = Number.parseFloat(inputIncome);
+            inputFood = Number.parseFloat(inputFood);
 
-            let billsConvert = ((inputBills / inputIncome) * 100).toFixed(2);
-            document.getElementById("bills-percent").style.width = `${billsConvert}%`;
-            document.getElementById("bills-p").append(`${billsConvert}%`);
-
-            let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(2);
-            document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
-            document.getElementById("clothes-p").append(`${clothesConvert}%`);
-
-            let foodConvert = ((inputFood / inputIncome) * 100).toFixed(2);
-            document.getElementById("food-percent").style.width = `${foodConvert}%`;
-            document.getElementById("food-p").append(`${foodConvert}%`);
-
-            let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(2);
-            document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
-            document.getElementById("entertainment-p").append(`${entertainmentConvert}%`);
-    
-
-          
-
+            if ( inputIncome < inputBills  ) {
+                document.getElementById("bills-percent").style.width = "100%";
+            }
+            if ( inputIncome < inputClothes) {
+                document.getElementById("clothes-percent").style.width = "100%";
+            }
+            if ( inputIncome < inputFood) {
+                document.getElementById("food-percent").style.width = "100%";
+            }
+            if (inputIncome < inputEntertainment) {
+                document.getElementById("entertainment-percent").style.width = "100%";
+            }
+            // turns the background red if the result is less then zero
+            if (result <= 0) {
+                document.getElementById("topTotal").style.backgroundColor = "red";
+            }
+         
+            document.getElementById("income").value = '';
+            document.getElementById("bills").value = '';
+            document.getElementById("clothes").value = '';
+            document.getElementById("food").value = '';
+            document.getElementById("entertainment").value = '';
+            
     
 
           }

@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
         <!-- credit Font Awesome website -->
         <script src="https://kit.fontawesome.com/51282c5a57.js" crossorigin="anonymous"></script>
+        
 
     </head>
 
@@ -51,14 +52,14 @@
             <!-- Form in main-->
             <article class="main">
                 <div class="row">
-                    <div class="budget-add">
+                    <div class="budget-add" id="budget-form">
                         <input type="number" name="incomeName" id="income" placeholder="Weekly Income"><br>
                         <input type="number" name="billsName"  id="bills" placeholder="Bills"><br>
                         <input type="number" name="clothesName"  id="clothes" placeholder="Clothes"><br>
                         <input type="number" name="foodName" id="food" placeholder="Food"><br>
                         <input type="number" name="entertainmentName" id="entertainment" placeholder="Entertainment"><br>
                         
-                        <button onclick="budget()" id="calcBtn" class="btn btn-blow" class="calcBtn" ><span class="">Calculate</span></button>
+                        <button onclick="budget()"  id="calcBtn" class="btn btn-blow" class="calcBtn" ><span class="">Calculate</span></button>
                     </div>
                     <div class="data-results">
                         <!-- ordered list -->
@@ -144,7 +145,7 @@
             <!-- Whatever we want here -->
             <footer class="footer">
                 <!-- we can put a company logo and other cool designs here for app use when app size -->
-                
+                <img src="logo.png" alt="logo" height="" width="">
                 <p style="color: grey;">Copyright &copy; 2019 Maeda Money 
                     | DevTeam: <a></a>Robert Harman, Brielle Robinson, Matthew Maeda</p>
                     <p style= "color: grey; opacity: 0.1;">We will sue you if we do not authorize your permission to use this website -matt</p>

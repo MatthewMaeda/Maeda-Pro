@@ -120,7 +120,6 @@ header {
 
 /* start progress bars */
 
-
 .progress-bars {
     line-height: 50px;
     text-align: left;
@@ -150,8 +149,8 @@ header {
     color: black;
     height: 50px;
     background-color: rgb(204, 59, 22);   
-
 }
+
 .bills-bar {
     background-color: #116466;
 }
@@ -279,7 +278,7 @@ textarea {
     
  
 }
-/* All the code for the calcBtn */
+/* All the code for the calcBtn (taken from website but we did edit its features) */
 .btn {
     display: inline-block;
     position: relative;
@@ -292,6 +291,7 @@ textarea {
     padding: 0;
     color: black;
     font-size: 20px;
+    outline: none;
 }
 
 .btn:focus {
@@ -382,6 +382,7 @@ outline-color: transparent;
     position: relative;
     bottom: 170px;
     left: 60px;
+    overflow-y: auto;
 }
 .outer-feed-box {
     border: 5px solid #116466;
@@ -389,11 +390,15 @@ outline-color: transparent;
     width: 250px;
     margin-top: 200px;
     background-color: white;
+    overflow-y: auto;
 }
 .feed-tag {
     padding: 5px;
-}
 
+}
+section {
+    overflow-y: auto;
+}
 /* End of feed box  */
 
 /* footer */
@@ -445,16 +450,7 @@ outline-color: transparent;
 
 @media only screen and (max-width: 1120px) {
     .aside-2 { 
-        width: 100px;
-        
-    }
-  
-    
-}
-
-@media only screen and (max-width: 1120px) {
-    .aside-2 { 
-        width: 100px;
+        width: 120px;
         
     }
     .main    { flex: 1 400px; }
