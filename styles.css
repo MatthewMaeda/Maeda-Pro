@@ -241,6 +241,7 @@ input {
     width: 40%;
     border-radius: 4px;
     font-size: 1rem;
+    
 
   }
 
@@ -276,7 +277,8 @@ textarea {
     display: flex;
     width: 650px;
     height: 100px;
-    
+    font-size: 1rem;
+
  
 }
 /* All the code for the calcBtn (taken from website but we did edit its features) */

@@ -1,15 +1,27 @@
+document.getElementById("calcBtn").addEventListener('click', budget);
 
 // calculations for budget
     function budget() {
         //sets a variable to find the input value
-        let inputIncome = document.getElementById("income").value;
-        let inputBills = document.getElementById("bills").value;
-        let inputFood = document.getElementById("food").value;
-        let inputClothes = document.getElementById("clothes").value;
-        let inputEntertainment = document.getElementById("entertainment").value;
+        let inputIncome = document.getElementById("income").value || 0;
+        let inputBills = document.getElementById("bills").value || 0;
+        let inputFood = document.getElementById("food").value || 0;
+        let inputClothes = document.getElementById("clothes").value || 0;
+        let inputEntertainment = document.getElementById("entertainment").value || 0;
         // total for all the inputs
-        let result = inputIncome - inputBills - inputFood - inputClothes - inputEntertainment;
 
+        let result = parseFloat(inputIncome) - (parseFloat(inputBills) + parseFloat(inputFood) + parseFloat(inputClothes) + parseFloat(inputEntertainment));
+        console.log(result);
+        console.log(inputBills);
+        console.log(inputClothes);
+        console.log(inputEntertainment);
+        console.log(inputFood);
+        console.log(inputIncome);
+        console.log(parseFloat(inputIncome));
+        console.log(parseFloat(inputBills));
+        console.log(parseFloat(inputClothes));
+        console.log(parseFloat(inputEntertainment));
+        console.log(parseFloat(inputFood));
         //Creates a new li for feed 
         const newLiIncome = document.createElement("li");
         const newLiBills = document.createElement("li");
@@ -62,101 +74,108 @@
 
             // output for that total boxes
             if (newResult) {
-             totalBoxOutput.innerText =  result;
+                const currentIncomeNumber = parseFloat(document.querySelector('#totalBoxOutput').innerText || 0);
+             totalBoxOutput.innerText = result + currentIncomeNumber;
             }
             if (newPBills) {
-                billsBoxOutput.innerText = inputBills;
+                const currentBillsNumber = parseFloat(document.querySelector('#billsBoxOutput').innerText || 0);
+                billsBoxOutput.innerText =  (parseFloat(inputBills) + parseFloat(currentBillsNumber));
             }
             if (newPFood) {
-                foodBoxOutput.innerText =  inputFood;
+                const currentFoodNumber = parseFloat(document.querySelector('#foodBoxOutput').innerText || 0);
+                foodBoxOutput.innerText = (parseFloat(inputFood) + parseFloat(currentFoodNumber));
             }
             if (newPClothes) {
-                clothesBoxOutput.innerText = inputClothes;
+                const currentClothesNumber = parseFloat(document.querySelector('#clothesBoxOutput').innerText || 0);
+                clothesBoxOutput.innerText = (parseFloat(inputClothes) + parseFloat(currentClothesNumber));
             }
             if (newPEntertainment) {
-                entertainmentBoxOutput.innerText = inputEntertainment;
+                const currentEntertainmentNumber = parseFloat(document.querySelector('#entertainmentBoxOutput').innerText || 0);
+                entertainmentBoxOutput.innerText = (parseFloat(inputEntertainment) + parseFloat(currentEntertainmentNumber));
             }
 
-            // its not adding when new numbers are made yeah yeah yeah
-            if (totalBoxOutput.value) {
-                totalBoxOutput.innerText =  result + result;
-            }
+        
             // text area results
-            const twentyPercent = .20;
-            let saving =  inputIncome * twentyPercent;
 
-            if (result < saving) {
-                totalArea.innerText ="What do you think you are, Maeda money? You can NOT spend more!";
+            const twentyPercent = .20;
+            let saving =  inputIncome * twentyPercent; //20% of your income you should save
+
+            if (result < saving)  {
+                totalArea.innerText ="What do you think you are, Maeda money? You can NOT spend more! You Should be saving 20% of your income."; //bad outcome
                 document.getElementById("totalPTag").style.color = "red";
             } else if (result >= saving ) {
-                totalArea.innerText = "Whoa, you are Maeda Money! You are doing a good job budgeting your money.";
+                totalArea.innerText = "Whoa, you are Maeda Money! You are doing a good job budgeting your money."; //good outcome
                 document.getElementById("totalPTag").style.color = "green";
             }
 
-            if (inputIncome < inputBills) {
-                billsArea.innerText ="You need to STOP being stupid"; //bad outcome
+            const fiftyPercent = .50;
+            let billsSaving = inputIncome * fiftyPercent; //50% of your income you should spend on bills
+
+            if (billsSaving < inputBills) {
+                billsArea.innerText ="You need to STOP being stupid. You should only be paying 50% of your income on bills."; //bad outcome
                 document.getElementById("billsPTag").style.color = "red";
             } else  {
                 billsArea.innerText ="You are on track, to saving money, treat yo-self"; // good outcome
                 document.getElementById("billsPTag").style.color = "green";
             }
 
-            if (inputBills < inputClothes) {
-                clothesArea.innerText ="You are NOT a fashion Icon, stop it."; //bad outcome
+            const fivePercent = .5;
+            let clothesSaving = inputIncome * fivePercent; //5% of your income you should spend on income
+
+            if (clothesSaving < inputClothes) {
+                clothesArea.innerText ="You are NOT a fashion Icon, stop it. Whoa, you should only be spending 5% of your total income on clothes."; //bad outcome
                 document.getElementById("clothesPTag").style.color = "red";
             } else {
                 clothesArea.innerText ="You could possibly spend more on nicer clothes."; //good outcome
                 document.getElementById("clothesPTag").style.color = "green";
             }
             
-            if (inputFood < inputEntertainment ) {
-                foodArea.innerText ="You should cook at home more."; //bad outcome
+            const elevenPercent = .11;
+            let foodSaving = inputIncome * elevenPercent; //11% of your income you should spend on income
+
+            if (foodSaving < inputFood ) {
+                foodArea.innerText ="You should cook at home more. You should only be spending 11% of your income on food."; //bad outcome
                 document.getElementById("foodPTag").style.color = "red";
             } else {
                 foodArea.innerText ="You can afford to eat out more."; // good outcome
                 document.getElementById("foodPTag").style.color = "green";
             }
 
-            if (inputEntertainment > inputClothes ) {
-            entertainmentArea.innerText ="You should be more anti-social."; //bad outcome
+            const tenPercent = .10;
+            let entertainmentSaving = inputIncome * tenPercent; //11% of your income you should spend on income
+
+            if (entertainmentSaving < inputEntertainment ) {
+            entertainmentArea.innerText ="You should be more anti-social. Dang, you should only be spending 10% of your income on entertainment."; //bad outcome
             document.getElementById("entertainmentPTag").style.color = "red";
             } else {
             entertainmentArea.innerText ="You should be less anti-social."; // good outcome
             document.getElementById("entertainmentPTag").style.color = "green";
             }
             // end of text area results
-
-            // progress bar
-            if (inputIncome > 0) {
-                let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
-                document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
-                document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
-            }
-
-            if (inputBills > 0) {
-                let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
-                document.getElementById("bills-percent").style.width = `${billsConvert}%`;
-                document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
-            }
-
-            if (inputClothes > 0) {
-                let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
-                document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
-                document.getElementById("clothes-p").innerHTML =`${clothesConvert}%`;
-            }
-
-            if (inputFood > 0) {
-                let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
-                document.getElementById("food-percent").style.width = `${foodConvert}%`;
-                document.getElementById("food-p").innerHTML = `${foodConvert}%`;
-            }
-
-            if (inputEntertainment > 0) {
-                let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
-                document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
-                document.getElementById("entertainment-p").innerHTML = `${entertainmentConvert}%`;
-            }
             
+            // progress bar
+            if (result > 0) { 
+                    let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
+                    document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+                    document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
+                
+                    let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
+                    document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+                    document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
+                
+                    let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
+                    document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
+                    document.getElementById("clothes-p").innerHTML =`${clothesConvert}%`;
+                
+                    let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
+                    document.getElementById("food-percent").style.width = `${foodConvert}%`;
+                    document.getElementById("food-p").innerHTML = `${foodConvert}%`;
+                
+                    let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
+                    document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
+                    document.getElementById("entertainment-p").innerHTML = `${entertainmentConvert}%`; 
+            } 
+
             //Below this point inputs will be numbers not strings 
             inputIncome = Number.parseFloat(inputIncome);
             inputBills = Number.parseFloat(inputBills);
@@ -164,19 +183,6 @@
             inputEntertainment = Number.parseFloat(inputEntertainment);
             inputIncome = Number.parseFloat(inputIncome);
             inputFood = Number.parseFloat(inputFood);
-
-            if ( inputIncome < inputBills  ) {
-                document.getElementById("bills-percent").style.width = "100%";
-            }
-            if ( inputIncome < inputClothes) {
-                document.getElementById("clothes-percent").style.width = "100%";
-            }
-            if ( inputIncome < inputFood) {
-                document.getElementById("food-percent").style.width = "100%";
-            }
-            if (inputIncome < inputEntertainment) {
-                document.getElementById("entertainment-percent").style.width = "100%";
-            }
             
             // turns the background red if the result is less then zero
             if (result <= 0) {
@@ -191,9 +197,17 @@
             document.getElementById("food").value = '';
             document.getElementById("entertainment").value = '';
             
-    
-
+                if (result < 0 ) {
+                window.open("https://giphy.com/embed/yIxNOXEMpqkqA");
+                }
+            
+            // remove event listener just in case i guess (not needed)
+            document.removeEventListener('click', budget); 
           }
+
+
+
+    
 
 
 
