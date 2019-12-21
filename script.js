@@ -11,17 +11,20 @@ document.getElementById("calcBtn").addEventListener('click', budget);
         // total for all the inputs
 
         let result = parseFloat(inputIncome) - (parseFloat(inputBills) + parseFloat(inputFood) + parseFloat(inputClothes) + parseFloat(inputEntertainment));
+        
         console.log(result);
         console.log(inputBills);
         console.log(inputClothes);
         console.log(inputEntertainment);
         console.log(inputFood);
         console.log(inputIncome);
+
         console.log(parseFloat(inputIncome));
         console.log(parseFloat(inputBills));
         console.log(parseFloat(inputClothes));
         console.log(parseFloat(inputEntertainment));
         console.log(parseFloat(inputFood));
+
         //Creates a new li for feed 
         const newLiIncome = document.createElement("li");
         const newLiBills = document.createElement("li");
@@ -35,6 +38,8 @@ document.getElementById("calcBtn").addEventListener('click', budget);
         const newPFood = document.createElement("p");
         const newPClothes = document.createElement("p");
         const newPEntertainment = document.createElement("p");
+
+        // create new element label $
         
         //Pairs the created LI to the global variable 
         newLiIncome.innerHTML = inputIncome;
@@ -72,28 +77,53 @@ document.getElementById("calcBtn").addEventListener('click', budget);
                 feedOutput.append("Entertainment: ", newLiEntertainment);
             }  
 
+            console.log(newResult);
+            console.log(newPBills);
+            console.log(newPClothes);
+            console.log(newPFood);
+            console.log(newPEntertainment);
+
             // output for that total boxes
             if (newResult) {
+                document.getElementById("totalBoxOutput").style.color = "black";
                 const currentIncomeNumber = parseFloat(document.querySelector('#totalBoxOutput').innerText || 0);
-             totalBoxOutput.innerText = result + currentIncomeNumber;
-            }
-            if (newPBills) {
-                const currentBillsNumber = parseFloat(document.querySelector('#billsBoxOutput').innerText || 0);
-                billsBoxOutput.innerText =  (parseFloat(inputBills) + parseFloat(currentBillsNumber));
-            }
-            if (newPFood) {
-                const currentFoodNumber = parseFloat(document.querySelector('#foodBoxOutput').innerText || 0);
-                foodBoxOutput.innerText = (parseFloat(inputFood) + parseFloat(currentFoodNumber));
-            }
-            if (newPClothes) {
-                const currentClothesNumber = parseFloat(document.querySelector('#clothesBoxOutput').innerText || 0);
-                clothesBoxOutput.innerText = (parseFloat(inputClothes) + parseFloat(currentClothesNumber));
-            }
-            if (newPEntertainment) {
-                const currentEntertainmentNumber = parseFloat(document.querySelector('#entertainmentBoxOutput').innerText || 0);
-                entertainmentBoxOutput.innerText = (parseFloat(inputEntertainment) + parseFloat(currentEntertainmentNumber));
+                totalBoxOutput.innerText = (result + currentIncomeNumber).toFixed(2);
+                
             }
 
+            if (newPBills) {
+                document.getElementById("billsBoxOutput").style.color = "black";
+                const currentBillsNumber = parseFloat(document.querySelector('#billsBoxOutput').innerText || 0);
+                 billsBoxOutput.innerText =  (parseFloat(inputBills) + parseFloat(currentBillsNumber)).toFixed(2);
+       
+            }
+
+            if (newPFood) {
+                document.getElementById("foodBoxOutput").style.color = "black";
+                const currentFoodNumber = parseFloat(document.querySelector('#foodBoxOutput').innerText || 0);
+                foodBoxOutput.innerText = (parseFloat(inputFood) + parseFloat(currentFoodNumber)).toFixed(2);
+       
+            }
+
+            if (newPClothes) {
+                document.getElementById("clothesBoxOutput").style.color = "black";
+                const currentClothesNumber = parseFloat(document.querySelector('#clothesBoxOutput').innerText || 0);
+                clothesBoxOutput.innerText = (parseFloat(inputClothes) + parseFloat(currentClothesNumber)).toFixed(2);
+            
+            }
+
+            if (newPEntertainment) {
+                document.getElementById("entertainmentBoxOutput").style.color = "black";
+                const currentEntertainmentNumber = parseFloat(document.querySelector('#entertainmentBoxOutput').innerText || 0);
+                entertainmentBoxOutput.innerText = (parseFloat(inputEntertainment) + parseFloat(currentEntertainmentNumber)).toFixed(2);
+ 
+            }
+
+            console.log(newResult);
+            console.log(newPBills);
+            console.log(newPClothes);
+            console.log(newPFood);
+            console.log(newPEntertainment);
         
             // text area results
 
@@ -103,9 +133,11 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             if (result < saving)  {
                 totalArea.innerText ="What do you think you are, Maeda money? You can NOT spend more! You Should be saving 20% of your income."; //bad outcome
                 document.getElementById("totalPTag").style.color = "red";
+                document.getElementById("totalArea").style.color = "red";
             } else if (result >= saving ) {
                 totalArea.innerText = "Whoa, you are Maeda Money! You are doing a good job budgeting your money."; //good outcome
                 document.getElementById("totalPTag").style.color = "green";
+                document.getElementById("totalArea").style.color = "green";
             }
 
             const fiftyPercent = .50;
@@ -114,9 +146,11 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             if (billsSaving < inputBills) {
                 billsArea.innerText ="You need to STOP being stupid. You should only be paying 50% of your income on bills."; //bad outcome
                 document.getElementById("billsPTag").style.color = "red";
+                document.getElementById("billsArea").style.color = "red";
             } else  {
                 billsArea.innerText ="You are on track, to saving money, treat yo-self"; // good outcome
                 document.getElementById("billsPTag").style.color = "green";
+                document.getElementById("billsArea").style.color = "green";
             }
 
             const fivePercent = .5;
@@ -125,9 +159,11 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             if (clothesSaving < inputClothes) {
                 clothesArea.innerText ="You are NOT a fashion Icon, stop it. Whoa, you should only be spending 5% of your total income on clothes."; //bad outcome
                 document.getElementById("clothesPTag").style.color = "red";
+                document.getElementById("clothesArea").style.color = "red";
             } else {
                 clothesArea.innerText ="You could possibly spend more on nicer clothes."; //good outcome
                 document.getElementById("clothesPTag").style.color = "green";
+                document.getElementById("clothesArea").style.color = "green";
             }
             
             const elevenPercent = .11;
@@ -136,9 +172,12 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             if (foodSaving < inputFood ) {
                 foodArea.innerText ="You should cook at home more. You should only be spending 11% of your income on food."; //bad outcome
                 document.getElementById("foodPTag").style.color = "red";
+                document.getElementById("foodArea").style.color = "red";
+                
             } else {
                 foodArea.innerText ="You can afford to eat out more."; // good outcome
                 document.getElementById("foodPTag").style.color = "green";
+                document.getElementById("foodArea").style.color = "green";
             }
 
             const tenPercent = .10;
@@ -147,9 +186,12 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             if (entertainmentSaving < inputEntertainment ) {
             entertainmentArea.innerText ="You should be more anti-social. Dang, you should only be spending 10% of your income on entertainment."; //bad outcome
             document.getElementById("entertainmentPTag").style.color = "red";
+            document.getElementById("entertainmentArea").style.color = "red";
+
             } else {
             entertainmentArea.innerText ="You should be less anti-social."; // good outcome
             document.getElementById("entertainmentPTag").style.color = "green";
+            document.getElementById("entertainmentArea").style.color = "green";
             }
             // end of text area results
             

@@ -21,27 +21,37 @@
                         <div class="boxTotal" id="topTotal">
                             <p class="totalLbl">Total</p>
                             <!-- JS output -->
-                            <p id="totalBoxOutput"></p>
+                            <label class="totalB">$
+                            <a id="totalBoxOutput"></a>
+                        </label>
                         </div>
                         <div class="boxBills" id="topBills">
                             <p class="totalLbl">Bills</p>
                             <!-- JS output -->
-                            <p id="billsBoxOutput"></p>
+                            <div class="totalB">$
+                            <a id="billsBoxOutput"></a>
+                            </div>
                         </div>
                         <div class="boxFood" id="topFood">
                             <p class="totalLbl">Food</p>
                             <!-- JS output -->
-                            <p id="foodBoxOutput"></p>
+                            <div class="totalB">$
+                            <a id="foodBoxOutput"></a>
+                            </div>
                         </div>
                         <div class="boxClothes" id="topClothes">
                             <p class="totalLbl" >Clothes</p>
                             <!-- JS output -->
-                            <p id="clothesBoxOutput"></p>
+                            <div class="totalB">$
+                            <a id="clothesBoxOutput"></a>
+                            </div>
                         </div>
                         <div class="boxEntertainment" id="topEntertainment">
                             <p class="totalLbl">Entertainment</p>
                             <!-- JS output -->
-                            <p id="entertainmentBoxOutput"></p>
+                            <div class="totalB">$
+                            <a id="entertainmentBoxOutput"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,16 +77,16 @@
                     <div class="data-results">
                         <!-- ordered list -->
                         <ol>
-                        <p id="totalPTag">Budgeting 20% of your money.</p>
-                        <textarea id="totalArea">Here are some tips: </textarea>
-                        <p id="billsPTag">Tips for budgeting bills.</p>
-                        <textarea id="billsArea">Here are some tips: </textarea>
-                        <p id="clothesPTag">Tips for budgeting clothes.</p>
-                        <textarea id="clothesArea">Here are some tips: </textarea>
-                        <p id="foodPTag">Tips for budgeting food.</p>
-                        <textarea id="foodArea">Here are some tips: </textarea>
-                        <p id="entertainmentPTag">Tips for budgeting entertainment.</p>
-                        <textarea id="entertainmentArea">Here are some tips: </textarea>
+                        <p id="totalPTag">Budgeting 20% of your money</p>
+                        <textarea disabled id="totalArea">Here are some tips: </textarea>
+                        <p id="billsPTag">Tips for budgeting bills</p>
+                        <textarea disabled id="billsArea">Here are some tips: </textarea>
+                        <p id="clothesPTag">Tips for budgeting clothes</p>
+                        <textarea disabled id="clothesArea">Here are some tips: </textarea>
+                        <p id="foodPTag">Tips for budgeting food</p>
+                        <textarea disabled id="foodArea">Here are some tips: </textarea>
+                        <p id="entertainmentPTag">Tips for budgeting entertainment</p>
+                        <textarea disabled id="entertainmentArea">Here are some tips: </textarea>
                         </ol>
                         </div>
                     </div>
@@ -86,9 +96,9 @@
             <aside class="aside aside-1">
                 <div class="section-bars">
                     <div class="bar-tag">
-                        <ul class="progress-bars">
+                        <ul class="progress-bars"> 
                             <li><div class="overview-bar" id="overview-bar">
-                                <label>Overview</label>
+                                <label>Remaining Budget</label>
                                 <div id="overview-back">
                                     <div id="overview-percent"><p class="center-percent" id="overview-p"></p></div>
                                 </div>
