@@ -260,7 +260,7 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             document.removeEventListener('click', budget); 
 
                 } else {
-                    alert("Please use do not use negative numbers, click ok to try again.")
+                    alert("Please use do not use negative numbers, click close to try again.")
                     document.getElementById("income").value = '';
                     document.getElementById("bills").value = '';
                     document.getElementById("clothes").value = '';
