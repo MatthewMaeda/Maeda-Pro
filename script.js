@@ -60,6 +60,8 @@ document.getElementById("calcBtn").addEventListener('click', budget);
                 feedOutput.remove();
             }); 
 
+            // makes sure to not use negative numbers
+            if (inputIncome >= 0 && inputBills >= 0 && inputClothes >= 0 && inputFood >= 0 && inputEntertainment >= 0) {
             // Feed Output for all the inputs
             if (inputIncome) {
                 feedOutput.append("Income: ", newLiIncome);
@@ -197,7 +199,7 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             
             // progress bar
             if (result > 0) { 
-                    let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
+                    let overviewConvert = ((totalBoxOutput.innerText / inputIncome) * 100).toFixed(1);
                     document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
                     document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
                 
@@ -227,9 +229,10 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             inputFood = Number.parseFloat(inputFood);
             
             // turns the background red if the result is less then zero
-            if (result <= 0) {
+            if (totalBoxOutput.innerText <= 0) {
                 document.getElementById("topTotal").style.backgroundColor = "red";
-            } else {
+            }
+            if ( totalBoxOutput.innerText >= 1) {
                 document.getElementById("topTotal").style.backgroundColor = "green";
             }
          
@@ -239,7 +242,7 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             document.getElementById("food").value = '';
             document.getElementById("entertainment").value = '';
             
-                if (result < 0 ) {
+                if (totalBoxOutput.innerText <= 0 ) {
                 window.open("https://giphy.com/embed/yIxNOXEMpqkqA");
                 }
             
@@ -255,6 +258,15 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             // remove event listener just in case i guess (not needed)
             document.removeEventListener('click', budget); 
+
+                } else {
+                    alert("Please use do not use negative numbers, click ok to try again.")
+                    document.getElementById("income").value = '';
+                    document.getElementById("bills").value = '';
+                    document.getElementById("clothes").value = '';
+                    document.getElementById("food").value = '';
+                    document.getElementById("entertainment").value = '';
+                }
           }
 
         //   button that moves your to the budgeting app (down the page)
