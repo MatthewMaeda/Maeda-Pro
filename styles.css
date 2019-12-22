@@ -61,6 +61,21 @@ body {
 header {
     height: 100px;
 }
+
+.olTitle {
+    list-style-type: none;
+}
+
+.maeda {
+    font-family: cursive;
+    font-size: 1rem;
+}
+
+.money {
+    font-family: 'Times New Roman';
+    font-size: 3rem;
+}
+
 .flexGrow {
     width: 90vw;
     height: 120px;
@@ -793,7 +808,12 @@ textArea {
     .header {
         position: relative;
         top: 30px;
-        height: 600px;
+        height: 700px;
+
+    }
+
+    .title {
+        text-align: left;
     }
 
     .aside-1 {

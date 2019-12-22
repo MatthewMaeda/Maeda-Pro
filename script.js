@@ -243,6 +243,16 @@ document.getElementById("calcBtn").addEventListener('click', budget);
                 window.open("https://giphy.com/embed/yIxNOXEMpqkqA");
                 }
             
+                // media queries that works under a max width of the page
+                var scroll = window.matchMedia("(max-width: 400px)");
+
+                if (scroll.matches) {
+                    document.body.scrollTop = 750;
+                    document.documentElement.scrollTop = 750;
+                 }
+
+          
+
             // remove event listener just in case i guess (not needed)
             document.removeEventListener('click', budget); 
           }
