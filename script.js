@@ -133,11 +133,13 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             let saving =  inputIncome * twentyPercent; //20% of your income you should save
 
             if (result < saving)  {
-                totalArea.innerText ="What do you think you are, Maeda money? You can NOT spend more! You Should be saving 20% of your income."; //bad outcome
+                let overviewConvert = ((totalBoxOutput.innerText / inputIncome) * 100).toFixed(1);
+                totalArea.innerText =`What do you think you are, Maeda money? You can NOT spend more! You are saving ${overviewConvert}% but you should be saving 20% of your income.`; //bad outcome
                 document.getElementById("totalPTag").style.color = "red";
                 document.getElementById("totalArea").style.color = "red";
             } else if (result >= saving ) {
-                totalArea.innerText = "Whoa, you are Maeda Money! You are doing a good job budgeting your money."; //good outcome
+                let overviewConvert = ((totalBoxOutput.innerText / inputIncome) * 100).toFixed(1);
+                totalArea.innerText = `Whoa, you are Maeda Money! Good job, you are saving ${overviewConvert}% of your money.`; //good outcome
                 document.getElementById("totalPTag").style.color = "green";
                 document.getElementById("totalArea").style.color = "green";
             }
@@ -146,11 +148,13 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             let billsSaving = inputIncome * fiftyPercent; //50% of your income you should spend on bills
 
             if (billsSaving < inputBills) {
-                billsArea.innerText ="You need to STOP being stupid. You should only be paying 50% of your income on bills."; //bad outcome
+                let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
+                billsArea.innerText =`You need to STOP being stupid. You are spending ${billsConvert}% of your income on bills.`; //bad outcome
                 document.getElementById("billsPTag").style.color = "red";
                 document.getElementById("billsArea").style.color = "red";
             } else  {
-                billsArea.innerText ="You are on track, to saving money, treat yo-self"; // good outcome
+                let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
+                billsArea.innerText =`You are on track! You are spending ${billsConvert}% on bills, treat yo-self`; // good outcome
                 document.getElementById("billsPTag").style.color = "green";
                 document.getElementById("billsArea").style.color = "green";
             }
@@ -158,12 +162,14 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             const fivePercent = .5;
             let clothesSaving = inputIncome * fivePercent; //5% of your income you should spend on income
 
-            if (clothesSaving < inputClothes) {
-                clothesArea.innerText ="You are NOT a fashion Icon, stop it. Whoa, you should only be spending 5% of your total income on clothes."; //bad outcome
+            if (clothesSaving <= inputClothes) {
+                let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
+                clothesArea.innerText =`You are NOT a fashion Icon, stop it. You are spending ${clothesConvert}% of your total income on clothes.`; //bad outcome
                 document.getElementById("clothesPTag").style.color = "red";
                 document.getElementById("clothesArea").style.color = "red";
             } else {
-                clothesArea.innerText ="You could possibly spend more on nicer clothes."; //good outcome
+                let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
+                clothesArea.innerText =`Nice, you are only spending ${clothesConvert}% of your income on clothes. You could possibly spend more on nicer clothes.`; //good outcome
                 document.getElementById("clothesPTag").style.color = "green";
                 document.getElementById("clothesArea").style.color = "green";
             }
@@ -172,12 +178,14 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             let foodSaving = inputIncome * elevenPercent; //11% of your income you should spend on income
 
             if (foodSaving < inputFood ) {
-                foodArea.innerText ="You should cook at home more. You should only be spending 11% of your income on food."; //bad outcome
+                let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
+                foodArea.innerText =`You should cook at home more. You are spending ${foodConvert}% of your income on food.`; //bad outcome
                 document.getElementById("foodPTag").style.color = "red";
                 document.getElementById("foodArea").style.color = "red";
                 
             } else {
-                foodArea.innerText ="You can afford to eat out more."; // good outcome
+                let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
+                foodArea.innerText =`Awesome, you are just spending ${foodConvert}% of your income on food. You can afford to eat out more.`; // good outcome
                 document.getElementById("foodPTag").style.color = "green";
                 document.getElementById("foodArea").style.color = "green";
             }
@@ -186,20 +194,22 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             let entertainmentSaving = inputIncome * tenPercent; //11% of your income you should spend on income
 
             if (entertainmentSaving < inputEntertainment ) {
-            entertainmentArea.innerText ="You should be more anti-social. Dang, you should only be spending 10% of your income on entertainment."; //bad outcome
-            document.getElementById("entertainmentPTag").style.color = "red";
-            document.getElementById("entertainmentArea").style.color = "red";
+                let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
+                entertainmentArea.innerText =`You should be more anti-social. Dang, you are spending ${entertainmentConvert}% of your income on entertainment.`; //bad outcome
+                document.getElementById("entertainmentPTag").style.color = "red";
+                document.getElementById("entertainmentArea").style.color = "red";
 
             } else {
-            entertainmentArea.innerText ="You should be less anti-social."; // good outcome
-            document.getElementById("entertainmentPTag").style.color = "green";
-            document.getElementById("entertainmentArea").style.color = "green";
+                let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
+                entertainmentArea.innerText =`You should be less anti-social. Keep it up, you are only spending ${entertainmentConvert}% of your income on entertainment`; // good outcome
+                document.getElementById("entertainmentPTag").style.color = "green";
+                document.getElementById("entertainmentArea").style.color = "green";
             }
             // end of text area results
             
             // progress bar
             if (result > 0) { 
-                    let overviewConvert = ((totalBoxOutput.innerText / inputIncome) * 100).toFixed(1);
+                    let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
                     document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
                     document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
                 
