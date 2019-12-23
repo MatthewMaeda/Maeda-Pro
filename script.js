@@ -159,10 +159,10 @@ document.getElementById("calcBtn").addEventListener('click', budget);
                 document.getElementById("billsArea").style.color = "green";
             }
 
-            const fivePercent = .5;
+            const fivePercent = .05;
             let clothesSaving = inputIncome * fivePercent; //5% of your income you should spend on income
 
-            if (clothesSaving <= inputClothes) {
+            if (clothesSaving < inputClothes) {
                 let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
                 clothesArea.innerText =`You are NOT a fashion Icon, stop it. You are spending ${clothesConvert}% of your total income on clothes.`; //bad outcome
                 document.getElementById("clothesPTag").style.color = "red";
@@ -209,26 +209,55 @@ document.getElementById("calcBtn").addEventListener('click', budget);
             
             // progress bar
             if (result > 0) { 
-                    let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
-                    document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
-                    document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
-                
-                    let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
-                    document.getElementById("bills-percent").style.width = `${billsConvert}%`;
-                    document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
-                
-                    let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
-                    document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
-                    document.getElementById("clothes-p").innerHTML =`${clothesConvert}%`;
-                
-                    let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
-                    document.getElementById("food-percent").style.width = `${foodConvert}%`;
-                    document.getElementById("food-p").innerHTML = `${foodConvert}%`;
-                
-                    let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
-                    document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
-                    document.getElementById("entertainment-p").innerHTML = `${entertainmentConvert}%`; 
+        
+              let overviewConvert = ((result / inputIncome) * 100).toFixed(1);
+              document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+              document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
+          
+              let billsConvert = ((inputBills / inputIncome) * 100).toFixed(1);
+              document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+              document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
+          
+              let clothesConvert = ((inputClothes / inputIncome) * 100).toFixed(1);
+              document.getElementById("clothes-percent").style.width = `${clothesConvert}%`;
+              document.getElementById("clothes-p").innerHTML =`${clothesConvert}%`;
+          
+              let foodConvert = ((inputFood / inputIncome) * 100).toFixed(1);
+              document.getElementById("food-percent").style.width = `${foodConvert}%`;
+              document.getElementById("food-p").innerHTML = `${foodConvert}%`;
+          
+              let entertainmentConvert = ((inputEntertainment / inputIncome) * 100).toFixed(1);
+              document.getElementById("entertainment-percent").style.width = `${entertainmentConvert}%`;
+              document.getElementById("entertainment-p").innerHTML = `${entertainmentConvert}%`; 
             } 
+            
+            // progress bars to fix an issue where you can add more values 
+            if (result < 0) {
+
+              // const currentIncomeNumber = parseFloat(document.querySelector('#totalBoxOutput').innerText || 0);
+              // let overviewConvert = ((result + currentIncomeNumber) * 100).toFixed(2);
+              // document.getElementById("overview-percent").style.width = `${overviewConvert}%`;
+              // document.getElementById("overview-p").innerHTML = `${overviewConvert}%`;
+   
+         
+              // const currentBillsNumber = parseFloat(document.querySelector('#billsBoxOutput').innerText || 0);
+              // let billsConvert =  ((parseFloat(inputBills) + parseFloat(currentBillsNumber)) * 100).toFixed(2);
+              // document.getElementById("bills-percent").style.width = `${billsConvert}%`;
+              // document.getElementById("bills-p").innerHTML = `${billsConvert}%`;
+     
+              // document.getElementById("foodBoxOutput").style.color = "black";
+              // const currentFoodNumber = parseFloat(document.querySelector('#foodBoxOutput').innerText || 0);
+              // foodBoxOutput.innerText = (parseFloat(inputFood) + parseFloat(currentFoodNumber)).toFixed(2);
+
+              // document.getElementById("clothesBoxOutput").style.color = "black";
+              // const currentClothesNumber = parseFloat(document.querySelector('#clothesBoxOutput').innerText || 0);
+              // clothesBoxOutput.innerText = (parseFloat(inputClothes) + parseFloat(currentClothesNumber)).toFixed(2);
+          
+              // document.getElementById("entertainmentBoxOutput").style.color = "black";
+              // const currentEntertainmentNumber = parseFloat(document.querySelector('#entertainmentBoxOutput').innerText || 0);
+              // entertainmentBoxOutput.innerText = (parseFloat(inputEntertainment) + parseFloat(currentEntertainmentNumber)).toFixed(2);
+            }
+
 
             //Below this point inputs will be numbers not strings 
             inputIncome = Number.parseFloat(inputIncome);
