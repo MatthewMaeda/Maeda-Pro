@@ -512,7 +512,7 @@ section {
   }
   .btn10{
     top: 300px;
-    left: 550px;
+    left: 800px;
     font-family: "proxima-nova", sans-serif;
     font-weight: 500;
     font-size: 13px;
@@ -589,13 +589,20 @@ section {
 	width: 120%;
 }
 
-.sky {
+#sky {
     height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
     background: none repeat scroll 0 0 #000000;
     color: #FFF;
     padding: 12px;
     font-family: Helvetica;
     display: block;
+  }
+
+  #skyNone {
+      display: none;
   }
   
   html, body {    

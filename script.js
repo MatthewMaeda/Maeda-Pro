@@ -260,7 +260,7 @@ document.getElementById("calcBtn").addEventListener('click', budget);
                 var scroll = window.matchMedia("(max-width: 400px)");
 
                 if (scroll.matches) {
-                    document.body.scrollTop = 750;
+                    document.body.scrollTop = document.getElementsByClassName("header");
                     document.documentElement.scrollTop = 750;
                  }
 
@@ -282,17 +282,23 @@ document.getElementById("calcBtn").addEventListener('click', budget);
         //   button that moves your to the budgeting app (down the page)
           function startBtn() {
             var scroll = window.matchMedia("(min-width: 400px)");
+    
+            document.getElementById("sky").id = "skyNone";
+          
+            
 
-            if (scroll.matches) {
-                document.body.scrollTop = 850;
-                document.documentElement.scrollTop = 850;
-             }
+            
+
+            // if (scroll.matches) {
+            //     document.body.scrollTop = 850;
+            //     document.documentElement.scrollTop = 850;
+            //  }
           }
 
         //   all javascript below was taken from code pen, this is not our code -matthew
           var particleCount = 300;
           var particleMax   = 1000;
-          var sky           = document.querySelector('.sky');
+          var sky           = document.querySelector('#sky');
           var canvas        = document.createElement('canvas');
           var ctx           = canvas.getContext('2d');
           var width         = sky.clientWidth;
