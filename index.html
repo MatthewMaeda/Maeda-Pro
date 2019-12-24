@@ -13,8 +13,8 @@
 
     <body>
         <section id="sky">
-            <a href="#0" class="btn10 ">
-                <span onClick="startBtn();">Start</span>
+            <a href="#0" onClick="startBtn();" class="btn10 ">
+                <span >Start</span>
              <div class="transition"></div>
            </a>
         </section>
@@ -25,7 +25,7 @@
                     <div class="topBoxes">
                         <div class="title">
                             <ol class="olTitle">
-                                <li><label class="maeda">Maeda</label></li>
+                                <li><label class="maeda" id="topTop">Maeda</label></li>
                                 <li><label class="money">Money</label></li>
                             </ol>
                         </div>
@@ -88,52 +88,53 @@
                     <div class="data-results">
                         <!-- ordered list -->
                         <ol>
-                        <p id="totalPTag">Budgeting 20% of your money</p>
+                        <p id="totalPTag">Budgeting: Goal saving 20% of your money</p>
                         <textarea disabled id="totalArea">Tips: </textarea>
-                        <p id="billsPTag">Budgeting Bills: 50% of total income.</p>
+                        <p id="billsPTag">Budgeting Bills: Goal 50% of total income.</p>
                         <textarea disabled id="billsArea">Tips: </textarea>
-                        <p id="clothesPTag">Budgeting Clothes: 5% of total income.</p>
+                        <p id="clothesPTag">Budgeting Clothes: Goal 5% of total income.</p>
                         <textarea disabled id="clothesArea">Tips: </textarea>
-                        <p id="foodPTag">Budgeting Food: 11% of total income.</p>
+                        <p id="foodPTag">Budgeting Food: Goal 11% of total income.</p>
                         <textarea disabled id="foodArea">Tips: </textarea>
-                        <p id="entertainmentPTag">Budgeting Entertainment: 10% of total income.</p>
+                        <p id="entertainmentPTag">Budgeting Entertainment: Goal 10% of total income.</p>
                         <textarea disabled id="entertainmentArea">Tips: </textarea>
                         </ol>
                         </div>
                     </div>
             </article>
             <!-- End of form in main-->
+            
             <!-- Side progress bar in aside 1 -->
             <aside class="aside aside-1">
                 <div class="section-bars">
                     <div class="bar-tag">
                         <ul class="progress-bars"> 
                             <li><div class="overview-bar" id="overview-bar">
-                                <label>Remaining Budget</label>
+                                <label class="centerC">Remaining Budget</label>
                                 <div id="overview-back">
                                     <div id="overview-percent"><p class="center-percent" id="overview-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="bills-bar" id="bills-bar">
-                                <label>Bills</label>
+                                <label class="centerC">Bills</label>
                                 <div id="bills-back">
                                     <div id="bills-percent"><p class="center-percent" id="bills-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="clothes-bar" id="clothes-bar">
-                                <label>Clothes</label>
+                                <label class="centerC">Clothes</label>
                                 <div id="clothes-back">
                                     <div id="clothes-percent"><p class="center-percent" id="clothes-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="food-bar" id="food-bar">
-                                <label>Food</label>
+                                <label class="centerC">Food</label>
                                 <div id="food-back">
                                     <div id="food-percent"><p class="center-percent" id="food-p"></p></div>
                                 </div>
                             </div></li>
                             <li><div class="entertainment-bar" id="entertainment-bar">
-                                <label>Entertainment</label>
+                                <label class="centerC">Entertainment</label>
                                 <div id="entertainment-back">
                                     <div id="entertainment-percent"><p class="center-percent" id="entertainment-p"></p></div>
                                 </div>

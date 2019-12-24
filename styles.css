@@ -135,6 +135,9 @@ header {
 /* End of totals boxes */
 
 /* start progress bars */
+.centerC {
+    padding: 15px;
+}
 
 .progress-bars {
     line-height: 50px;
@@ -498,7 +501,8 @@ section {
     text-align: center;
     position: relative;
     text-decoration: none;
-    display:inline-block;
+    display:flex;
+    width: 50px;
     
   }
   .transition-bar{
@@ -511,8 +515,9 @@ section {
     z-index:-1;
   }
   .btn10{
-    top: 300px;
-    left: 800px;
+    display: flex;
+    margin: auto;
+    top: 400px;
     font-family: "proxima-nova", sans-serif;
     font-weight: 500;
     font-size: 13px;
@@ -807,6 +812,7 @@ textArea {
         width: 250px;
     
     }
+
 }
 @media only screen and (max-width: 650px) {
     .main    { flex: 2 600px; }
@@ -959,6 +965,26 @@ textArea {
        
      }
 
+     #totalPTag {
+         font-size: 12px;
+     }
+
+     #billsPTag {
+        font-size: 12px;
+    }
+
+    #clothesPTag {
+        font-size: 12px;
+    }
+
+    #foodPTag {
+        font-size: 12px;
+    }
+
+    #entertainmentPTag {
+        font-size: 12px;
+    }
+    
      .sue {
          display: none;
      }
