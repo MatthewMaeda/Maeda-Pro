@@ -1,3 +1,4 @@
+// Done
 document.getElementById("calcBtn").addEventListener('click', budget);
 
 // calculations for budget
