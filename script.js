@@ -134,12 +134,12 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             if (result < saving)  {
 
-                totalArea.innerText =`What do you think you are, Maeda money? You can NOT spend more! You are saving but you should be saving 20% of your income.`; //bad outcome
+                totalArea.innerText =`What do you think you are, Maeda money? You can NOT spend more! You should be saving 20% of your income.`; //bad outcome
                 document.getElementById("totalPTag").style.color = "red";
                 document.getElementById("totalArea").style.color = "red";
             } else if (result >= saving ) {
 
-                totalArea.innerText = `Whoa, you are Maeda Money! Good job, you are saving of your money.`; //good outcome
+                totalArea.innerText = `Whoa, you are Maeda Money! Good job, of saving your money.`; //good outcome
                 document.getElementById("totalPTag").style.color = "green";
                 document.getElementById("totalArea").style.color = "green";
             }
@@ -149,12 +149,12 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             if (billsSaving < inputBills) {
                 
-                billsArea.innerText =`You need to STOP being stupid. You are spending of your income on bills.`; //bad outcome
+                billsArea.innerText =`You need to STOP being stupid. You are spending too much of your income on bills.`; //bad outcome
                 document.getElementById("billsPTag").style.color = "red";
                 document.getElementById("billsArea").style.color = "red";
             } else  {
                 
-                billsArea.innerText =`You are on track! You are spending on bills, treat yo-self`; // good outcome
+                billsArea.innerText =`You are on track! You are saving on bills, treat yo-self`; // good outcome
                 document.getElementById("billsPTag").style.color = "green";
                 document.getElementById("billsArea").style.color = "green";
             }
@@ -164,12 +164,12 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             if (clothesSaving < inputClothes) {
                 
-                clothesArea.innerText =`You are NOT a fashion Icon, stop it. You are spending of your total income on clothes.`; //bad outcome
+                clothesArea.innerText =`You are NOT a fashion Icon, stop it. You are spending too much of your total income on clothes.`; //bad outcome
                 document.getElementById("clothesPTag").style.color = "red";
                 document.getElementById("clothesArea").style.color = "red";
             } else {
                 
-                clothesArea.innerText =`Nice, you are only spending of your income on clothes. You could possibly spend more on nicer clothes.`; //good outcome
+                clothesArea.innerText =`Nice, you are saving little income on clothes. You could possibly spend more on nicer clothes.`; //good outcome
                 document.getElementById("clothesPTag").style.color = "green";
                 document.getElementById("clothesArea").style.color = "green";
             }
@@ -179,13 +179,13 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             if (foodSaving < inputFood ) {
                 
-                foodArea.innerText =`You should cook at home more. You are spending of your income on food.`; //bad outcome
+                foodArea.innerText =`You should cook at home more. You ARE spending too much of your income on food.`; //bad outcome
                 document.getElementById("foodPTag").style.color = "red";
                 document.getElementById("foodArea").style.color = "red";
                 
             } else {
                 
-                foodArea.innerText =`Awesome, you are just spending of your income on food. You can afford to eat out more.`; // good outcome
+                foodArea.innerText =`Awesome, you are spending little of your income on food. You can afford to eat out more.`; // good outcome
                 document.getElementById("foodPTag").style.color = "green";
                 document.getElementById("foodArea").style.color = "green";
             }
@@ -195,13 +195,13 @@ document.getElementById("calcBtn").addEventListener('click', budget);
 
             if (entertainmentSaving < inputEntertainment ) {
                
-                entertainmentArea.innerText =`You should be more anti-social. Dang, you are spending of your income on entertainment.`; //bad outcome
+                entertainmentArea.innerText =`You should be more anti-social. Dang, you are spending too much of your income on entertainment.`; //bad outcome
                 document.getElementById("entertainmentPTag").style.color = "red";
                 document.getElementById("entertainmentArea").style.color = "red";
 
             } else {
                 
-                entertainmentArea.innerText =`You should be less anti-social. Keep it up, you are only spending of your income on entertainment`; // good outcome
+                entertainmentArea.innerText =`You should be less anti-social. Keep it up, you are saving your income on entertainment`; // good outcome
                 document.getElementById("entertainmentPTag").style.color = "green";
                 document.getElementById("entertainmentArea").style.color = "green";
             }
